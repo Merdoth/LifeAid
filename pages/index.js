@@ -29,7 +29,7 @@ const Index = () => {
     	<div>
 			<Callback />
 			<div>
-				<button onClick={() => auth.login()}>Login</button>
+				<button type="button" onClick={() => auth.login()}>Login</button>
 			</div>
     	</div>
 	);
