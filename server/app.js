@@ -18,20 +18,24 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = parseInt(process.env.PORT, 10) || 3000;
 const server = express(); // Set up the express app
+const jwt = require('express-jwt');
+const jwtAuthz = require('express-jwt-authz');
+const jwksRsa = require('jwks-rsa');
+
 dotenv.config();
 mongoose.Promise = global.Promise;
 let compiler;
 
 // Setup a default catch-all route that sends back a welcome message in JSON format.
-if (process.env.NODE_ENV === 'production') {
-    mongoose.connect(configDB.url_production, { useNewUrlParser: true });
-} else if (process.env.NODE_ENV === 'test') {
-    mongoose.connect(configDB.url_test, { useNewUrlParser: true });
-    compiler = webpack(devConfig);
-} else {
-    mongoose.connect(configDB.url, { useNewUrlParser: true });
-    compiler = webpack(devConfig);
-}
+// if (process.env.NODE_ENV === 'production') {
+//     mongoose.connect(configDB.url_production, { useNewUrlParser: true });
+// } else if (process.env.NODE_ENV === 'test') {
+//     mongoose.connect(configDB.url_test, { useNewUrlParser: true });
+//     compiler = webpack(devConfig);
+// } else {
+//     mongoose.connect(configDB.url, { useNewUrlParser: true });
+//     compiler = webpack(devConfig);
+// }
 
 // Log requests to the console.
 server.use(logger('dev'));
@@ -51,6 +55,7 @@ if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
 
 app.prepare().then(() => {
     server.use('/api/v1', routes);
+
     server.get('*', (req, res) => {
         handle(req, res);
         // res.sendFile(path.join(__dirname, '../client/index.html'));
