@@ -19,10 +19,8 @@ const Aids = {
             });
         }
 
-        const queryText = req.body;
-        const { public_id, url } = await req.file;
-        queryText.imageId = public_id;
-        queryText.imageUrl = url;
+        const { public_id: imageId, url: imageUrl } = await req.file;
+        const queryText = { ...req.body, imageId, imageUrl };
 
         try {
             const aid = await db.create(queryText);
