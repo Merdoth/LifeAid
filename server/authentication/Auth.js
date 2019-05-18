@@ -14,22 +14,13 @@ export default class Auth {
 
     expiresAt;
 
-    // auth0 = new auth0.WebAuth({
-    //     audience: process.env.AUDIENCE,
-    //     clientID: process.env.CLIENT_ID,
-    //     domain: process.env.DOMAIN,
-    //     redirectUri: `http://localhost:${port}`,
-    //     responseType: 'token id_token',
-    //     scope: 'openid profile',
-    // });
-    //
     auth0 = new auth0.WebAuth({
-        audience: 'https://iammiracle.auth0.com/api/v2/',
-        clientID: 'I0Qpgj1efZdvUtV5nwRJyx14VJl2S2Qb',
-        domain: 'iammiracle.auth0.com',
-        redirectUri: 'http://localhost:8080',
+        audience: process.env.AUDIENCE,
+        clientID: process.env.CLIENT_ID,
+        domain: process.env.DOMAIN,
+        redirectUri: `http://localhost:${port}`,
         responseType: 'token id_token',
-        scope: 'openid',
+        scope: 'openid profile',
     });
 
     login() {

@@ -2,6 +2,7 @@
 /* eslint react/jsx-no-literals: 0 */
 /* eslint arrow-body-style: 0 */
 import React from 'react';
+import Link from 'next/link';
 import Auth from '../server/authentication/Auth';
 
 const auth = new Auth();
@@ -22,9 +23,7 @@ const Index = () => {
     return (
         <div>
             <Callback />
-            <div>
-                <button type="button" onClick={() => auth.login()}>Login</button>
-            </div>
+            <Link href="/login">Login</Link>
         </div>
     );
 };
