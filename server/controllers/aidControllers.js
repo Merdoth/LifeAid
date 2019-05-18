@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable sort-keys */
 import {
     INTERNAL_SERVER_ERROR, CREATED, OK, NOT_FOUND, BAD_REQUEST, getStatusText
@@ -17,7 +18,10 @@ const Aids = {
                 data: { errors },
             });
         }
-        const queryText = req.body;
+
+        const { public_id: imageId, url: imageUrl } = await req.file;
+        const queryText = { ...req.body, imageId, imageUrl };
+
         try {
             const aid = await db.create(queryText);
             return res.status(CREATED).send({
