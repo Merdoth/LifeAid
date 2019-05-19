@@ -3,26 +3,11 @@
 /* eslint arrow-body-style: 0 */
 import React from 'react';
 import Link from 'next/link';
-import Auth from '../server/authentication/Auth';
-
-const auth = new Auth();
-
-class Callback extends React.Component {
-    componentDidMount() {
-        auth.handleAuthentication();
-    }
-
-    render() {
-        return (
-            <div>Life Aid</div>
-        );
-    }
-}
 
 const Index = () => {
     return (
         <div>
-            <Callback />
+            <div>Life Aid</div>
             <Link href="/login">Login</Link>
         </div>
     );
