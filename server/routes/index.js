@@ -38,15 +38,15 @@ router.get('/reports/:id', reportController.getOne);
 router.delete('/reports/:id', reportController.deleteReport);
 
 // Create a new Aid Comment
-router.post('/aids/:aidid/comments', commentController.create);
+router.post('/aids/:aidId/comments', commentController.create);
 
 // Delete a Aid Comment with id
-router.delete('/aids/:aidid/comments/:commentid', commentController.deleteComment);
+router.delete('/aids/:aidId/comments/:commentId', commentController.deleteComment);
 
 // Retrieve a single Aid comment with id
-router.get('/aids/:aidid/comments/:commentid', commentController.getOne);
+router.get('/aids/:aidId/comments/:commentId', commentController.getOne);
 
 // Update a Aid comment with id
-router.put('/aids/:aidid/comments/:commentid', commentController.updateComment);
+router.put('/aids/:aidId/comments/:commentId', commentController.updateComment);
 
 export default router;

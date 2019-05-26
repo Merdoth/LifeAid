@@ -10,10 +10,11 @@ const Comments = {
     async create(req, res) {
         try {
             const query = {
-                _id: req.params.aidid,
+                _id: req.params.aidId,
             };
 
             const aid = await db.findOne(query);
+
             if (!aid) {
                 return res.status(NOT_FOUND).send({
                     status: 'error',
@@ -40,7 +41,7 @@ const Comments = {
 
     async deleteComment(req, res) {
         const queryText = {
-            _id: req.params.aidid,
+            _id: req.params.aidId,
         };
 
         try {
@@ -53,7 +54,7 @@ const Comments = {
                 });
             }
 
-            aid.comments.id({ _id: req.params.commentid }).remove();
+            aid.comments.id({ _id: req.params.commentId }).remove();
             aid.save();
 
             return res.status(CREATED).send({
@@ -71,7 +72,7 @@ const Comments = {
 
     async getOne(req, res) {
         const queryText = {
-            _id: req.params.aidid,
+            _id: req.params.aidId,
         };
         try {
             const aid = await db.findOne(queryText);
@@ -83,7 +84,7 @@ const Comments = {
                 });
             }
 
-            const comment = await aid.comments.id(req.params.commentid);
+            const comment = await aid.comments.id(req.params.commentId);
 
             return res.status(CREATED).send({
                 status: 'success',
@@ -100,7 +101,7 @@ const Comments = {
 
     async updateComment(req, res) {
         const queryText = {
-            _id: req.params.aidid,
+            _id: req.params.aidId,
         };
 
         try {
@@ -113,7 +114,7 @@ const Comments = {
                 });
             }
 
-            const comment = await aid.comments.id(req.params.commentid);
+            const comment = await aid.comments.id(req.params.commentId);
             const { author, rating, reviewText } = req.body;
             comment.author = author;
             comment.rating = rating;
