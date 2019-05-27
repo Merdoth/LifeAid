@@ -42,12 +42,12 @@ const aidSchema = new Schema(
             required: true,
             type: String,
         },
-        /* rating: {
+        rating: {
             max: 5,
             min: 0,
             required: true,
             type: Number,
-        }, */
+        },
         title: {
             required: true,
             type: String,

@@ -40,6 +40,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(expressValidator());
 server.use(express.static(path.join(__dirname, './../public')));
 server.use('/api-docs', express.static(path.join(__dirname, './../api-docs')));
+server.use('/api/v1', routes);
 
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     server.use(webpackDevMiddleware(compiler, {
@@ -64,3 +65,5 @@ app.prepare().then(() => {
     console.error(ex); /* eslint no-console:0 */
     process.exit(1);
 });
+
+module.exports = server;

@@ -6,6 +6,20 @@ import {
 
 const db = require('./promise').AidDb;
 
+const averageRating = async aid => {
+    if (aid.comments && aid.comments.length > 0) {
+        const commentCount = await aid.comments.length;
+        let commentTotal = 0;
+        for (let i = 0; i < commentCount; i += 1) {
+            commentTotal += aid.comments[i].rating;
+        }
+
+        const ratingAverage = await parseInt(commentTotal / commentCount, 10);
+        aid.rating = ratingAverage;
+        aid.save();
+    }
+};
+
 const Comments = {
     async create(req, res) {
         try {
@@ -24,7 +38,7 @@ const Comments = {
 
             const queryText = req.body;
             aid.comments.push(queryText);
-            aid.save();
+            averageRating(aid);
 
             return res.status(CREATED).send({
                 status: 'success',
@@ -55,7 +69,7 @@ const Comments = {
             }
 
             aid.comments.id({ _id: req.params.commentId }).remove();
-            aid.save();
+            averageRating(aid);
 
             return res.status(CREATED).send({
                 status: 'success',
@@ -119,7 +133,7 @@ const Comments = {
             comment.author = author;
             comment.rating = rating;
             comment.reviewText = reviewText;
-            aid.save();
+            averageRating(aid);
 
             return res.status(CREATED).send({
                 status: 'success',
