@@ -69,7 +69,6 @@ const strategy = new Auth0Strategy(
         clientID: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
         domain: process.env.DOMAIN,
-
     },
     function (accessToken, refreshToken, extraParams, profile, done) {
         return done(null, profile);
@@ -107,7 +106,7 @@ app.prepare().then(() => {
     });
 
     server.get('/callback', function (req, res, nextVal) {
-        passport.authenticate('auth0', function (err, user, info) {
+        passport.authenticate('auth0', function (err, user) {
             if (err) { return nextVal(err); }
             if (!user) { return res.redirect('/login'); }
             req.logIn(user, function (error) {
@@ -117,7 +116,7 @@ app.prepare().then(() => {
         })(req, res, nextVal);
     });
 
-    server.get('/api/user', secured(), function (req, res, nextVal) {
+    server.get('/api/user', secured(), function (req, res) {
         const { ...userProfile } = req.user;
         return res.status(201).send({
             id: userProfile.id,
