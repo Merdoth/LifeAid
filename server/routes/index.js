@@ -43,8 +43,11 @@ router.post('/user', userController.create);
 // Update a user with id
 router.put('/user/:id', userController.update);
 
-// Retrieve all reports
+// Retrieve all users
 router.get('/users', userController.getAll);
+
+// Retrieve a user
+router.get('/user/:id', userController.getOne);
 
 // Delete a users
 router.delete('/user/:id', userController.delete);
