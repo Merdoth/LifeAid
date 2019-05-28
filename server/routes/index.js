@@ -2,6 +2,7 @@
 import express from 'express';
 import aidController from '../controllers/aidControllers';
 import reportController from '../controllers/reportControllers';
+import userController from '../controllers/userControllers';
 import imageParser from '../middlewares/ImageParser';
 import audioParser from '../middlewares/audioParser';
 
@@ -35,4 +36,20 @@ router.get('/reports/:id', reportController.getOne);
 
 // Delete a Report with id
 router.delete('/reports/:id', reportController.deleteReport);
+
+// Create new users
+router.post('/user', userController.create);
+
+// Update a user with id
+router.put('/user/:id', userController.update);
+
+// Retrieve all users
+router.get('/users', userController.getAll);
+
+// Retrieve a user
+router.get('/user/:id', userController.getOne);
+
+// Delete a users
+router.delete('/user/:id', userController.delete);
+
 export default router;
