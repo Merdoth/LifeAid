@@ -1,5 +1,6 @@
 import Aid from '../models/aid';
 import Report from '../models/report';
+import Users from '../models/users';
 
 /**
        * @param {string} param
@@ -47,7 +48,30 @@ class ReportDb {
     }
 }
 
+class UserDb {
+    static find(param) {
+        return Users.find(param);
+    }
+
+    static create(param) {
+        return Users.create(param);
+    }
+
+    static findOne(param) {
+        return Users.findOne(param);
+    }
+
+    static findOneAndUpdate(param, text) {
+        return Users.findOneAndUpdate(param, text, { new: true });
+    }
+
+    static findOneAndDelete(param) {
+        return Users.findOneAndDelete(param);
+    }
+}
+
 module.exports = {
     AidDb,
     ReportDb,
+    UserDb,
 };

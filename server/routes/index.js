@@ -2,7 +2,7 @@
 import express from 'express';
 import aidController from '../controllers/aidControllers';
 import reportController from '../controllers/reportControllers';
-import commentController from '../controllers/aidComments';
+import userController from '../controllers/userControllers';
 import imageParser from '../middlewares/ImageParser';
 import audioParser from '../middlewares/audioParser';
 
@@ -37,16 +37,19 @@ router.get('/reports/:id', reportController.getOne);
 // Delete a Report with id
 router.delete('/reports/:id', reportController.deleteReport);
 
-// Create a new Aid Comment
-router.post('/aids/:aidId/comments', commentController.create);
+// Create new users
+router.post('/user', userController.create);
 
-// Delete a Aid Comment with id
-router.delete('/aids/:aidId/comments/:commentId', commentController.deleteComment);
+// Update a user with id
+router.put('/user/:id', userController.update);
 
-// Retrieve a single Aid comment with id
-router.get('/aids/:aidId/comments/:commentId', commentController.getOne);
+// Retrieve all users
+router.get('/users', userController.getAll);
 
-// Update a Aid comment with id
-router.put('/aids/:aidId/comments/:commentId', commentController.updateComment);
+// Retrieve a user
+router.get('/user/:id', userController.getOne);
+
+// Delete a users
+router.delete('/user/:id', userController.delete);
 
 export default router;
