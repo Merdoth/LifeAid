@@ -1,11 +1,17 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-undef */
 /* eslint-disable sort-keys */
+/* eslint arrow-body-style: 0 */
+/* eslint func-names: 0 */
+/* eslint arrow-body-style: 0 */
+/* eslint prefer-arrow-callback: 0 */
+/* eslint consistent-return: 0 */
 import {
     CREATED, getStatusText, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, BAD_REQUEST
 } from 'http-status-codes';
 import validateUserQueryText from '../validation/user';
 
+const bcrypt = require('bcrypt');
 const db = require('./promise').UserDb;
 
 const Users = {
@@ -21,6 +27,13 @@ const Users = {
         }
 
         const queryText = req.body;
+
+        await bcrypt
+            .hash(queryText.password, 10)
+            .then(hash => {
+                queryText.password = hash;
+            })
+            .catch(err => err.message);
 
         try {
             const user = await db.create(queryText);

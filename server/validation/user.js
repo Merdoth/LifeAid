@@ -1,3 +1,4 @@
+/* eslint arrow-body-style: 0 */
 import Validator from 'validator';
 import isEmpty from './is-empty';
 
