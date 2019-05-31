@@ -1,6 +1,7 @@
 /* eslint-disable sort-keys */
 import express from 'express';
 import aidController from '../controllers/aidControllers';
+import aidComments from '../controllers/aidComments';
 import reportController from '../controllers/reportControllers';
 import userController from '../controllers/userControllers';
 import imageParser from '../middlewares/ImageParser';
@@ -37,6 +38,20 @@ router.get('/reports/:id', reportController.getOne);
 // Delete a Report with id
 router.delete('/reports/:id', reportController.deleteReport);
 
+// Comment route
+// Create a  new comment
+router.post('/aids/aidId/comments', aidComments.create);
+
+// Retrieve a single aid comment with Id
+router.get('/aids/aidId/comments/commentId', aidComments.getOne);
+
+// Update a Aid Comment with id
+router.put('/aids/aidId/comments/commentId', aidComments.updateComment);
+
+// Delete a Aid Comment with id
+router.delete('/aids/aidId/comments/commentId', aidComments.deleteComment);
+
+// User routes
 // Create new users
 router.post('/user', userController.create);
 
