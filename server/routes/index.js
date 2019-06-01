@@ -1,12 +1,17 @@
+/* eslint-disable sort-keys */
 import express from 'express';
 import aidController from '../controllers/aidControllers';
+import aidComments from '../controllers/aidComments';
 import reportController from '../controllers/reportControllers';
+import userController from '../controllers/userControllers';
+import imageParser from '../middlewares/ImageParser';
+import audioParser from '../middlewares/audioParser';
 
 const router = express.Router();
 
 // aid route
 // Create a new Aid
-router.post('/aid', aidController.create);
+router.post('/aid', imageParser.single('image'), aidController.create);
 
 // Retrieve all Aids
 router.get('/aids', aidController.getAll);
@@ -22,7 +27,7 @@ router.delete('/aids/:id', aidController.deleteAid);
 
 // report route
 // Create a new Report
-router.post('/report', reportController.create);
+router.post('/report', audioParser.single('audio'), reportController.create);
 
 // Retrieve all reports
 router.get('/reports', reportController.getAll);
@@ -32,4 +37,34 @@ router.get('/reports/:id', reportController.getOne);
 
 // Delete a Report with id
 router.delete('/reports/:id', reportController.deleteReport);
+
+// Comment route
+// Create a  new comment
+router.post('/aids/aidId/comments', aidComments.create);
+
+// Retrieve a single aid comment with Id
+router.get('/aids/aidId/comments/commentId', aidComments.getOne);
+
+// Update a Aid Comment with id
+router.put('/aids/aidId/comments/commentId', aidComments.updateComment);
+
+// Delete a Aid Comment with id
+router.delete('/aids/aidId/comments/commentId', aidComments.deleteComment);
+
+// User routes
+// Create new users
+router.post('/user', userController.create);
+
+// Update a user with id
+router.put('/user/:id', userController.update);
+
+// Retrieve all users
+router.get('/users', userController.getAll);
+
+// Retrieve a user
+router.get('/user/:id', userController.getOne);
+
+// Delete a users
+router.delete('/user/:id', userController.delete);
+
 export default router;
