@@ -10,6 +10,11 @@ cloudinary.config({
     api_secret: process.env.API_SECRET,
     cloud_name: process.env.CLOUD_NAME,
 });
+
+const { API_KEY, API_SECRET, CLOUD_NAME } = process.env;
+
+cloudinary.config({ api_key: API_KEY, api_secret: API_SECRET, cloud_name: CLOUD_NAME });
+
 const storage = cloudinaryStorage({
     cloudinary,
     params: {
