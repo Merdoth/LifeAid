@@ -52,6 +52,7 @@
     "@types/react": "^16.8.17",
     "auth0-js": "^9.10.2",
     "axios": "^0.18.0",
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "chai-http": "^4.3.0",
     "cloudinary": "^1.14.0",
