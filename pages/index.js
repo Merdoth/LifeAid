@@ -2,29 +2,13 @@
 /* eslint react/jsx-no-literals: 0 */
 /* eslint arrow-body-style: 0 */
 import React from 'react';
-import Auth from '../server/authentication/Auth';
-
-const auth = new Auth();
-
-class Callback extends React.Component {
-    componentDidMount() {
-        auth.handleAuthentication();
-    }
-
-    render() {
-        return (
-            <div>Life Aid</div>
-        );
-    }
-}
+import Link from 'next/link';
 
 const Index = () => {
     return (
         <div>
-            <Callback />
-            <div>
-                <button type="button" onClick={() => auth.login()}>Login</button>
-            </div>
+            <div>Life Aid</div>
+            <Link href="/login">Login</Link>
         </div>
     );
 };
