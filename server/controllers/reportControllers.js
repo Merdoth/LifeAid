@@ -1,21 +1,45 @@
+/* eslint-disable quotes */
 /* eslint-disable camelcase */
 /* eslint-disable no-undef */
 /* eslint-disable sort-keys */
 import {
     CREATED, getStatusText, INTERNAL_SERVER_ERROR, NOT_FOUND, OK
 } from 'http-status-codes';
+import Nexmo from 'nexmo';
+import dotenv from 'dotenv';
+import sendMail from '../middlewares/nodemailer';
+
+dotenv.config();
+
+const {
+    SMS_API_KEY, SMS_API_SECRET, MAP_API_KEY,
+} = process.env;
+
+const nexmo = new Nexmo({
+    apiKey: SMS_API_KEY,
+    apiSecret: SMS_API_SECRET,
+});
 
 const db = require('./promise').ReportDb;
 
 const Reports = {
     async create(req, res) {
-        const queryText = req.body;
-        const { public_id, url } = await req.file;
-        queryText.audioId = public_id;
-        queryText.audioUrl = url;
+        const { public_id: audioId, url: audioUrl } = await req.file;
+        const queryText = { ...req.body, audioId, audioUrl };
 
         try {
             const report = await db.create(queryText);
+            sendMail('lifeaidd@gmail.com',
+                'Emergency report',
+                'faithomojola@yahoo.com',
+                `<b>Emergency </b> <br></br><br></br>
+                <img src="https://maps.googleapis.com/maps/api/staticmap?
+                center=${queryText.coords[0]},${queryText.coords[1]}
+                &zoom=20&size=500x500
+                &markers=color:red%7Clabel:S%7C${queryText.coords[0]},${queryText.coords[1]}
+                &key=${MAP_API_KEY}"> <br></br><br></br> 
+                ${queryText.audioUrl}`);
+            nexmo.message.sendSms('lifeaid', '08150422039', 'audioUrl');
             return res.status(CREATED).send({
                 status: 'success',
                 data: { message: 'Report successfully created', report },
