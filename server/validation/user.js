@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import Validator from 'validator';
 import isEmpty from './is-empty';
 

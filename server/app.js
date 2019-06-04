@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import expressValidator from 'express-validator';
 import logger from 'morgan';
 import path from 'path';
-import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import dotenv from 'dotenv';
@@ -15,7 +14,6 @@ import Auth0Strategy from 'passport-auth0';
 import passport from 'passport';
 import secured from './middlewares/secured';
 import routes from './routes';
-import devConfig from '../webpack.config.babel';
 import configDB from './config/database';
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -42,10 +40,8 @@ if (process.env.NODE_ENV === 'production') {
     mongoose.connect(configDB.url_production, { useNewUrlParser: true });
 } else if (process.env.NODE_ENV === 'test') {
     mongoose.connect(configDB.url_test, { useNewUrlParser: true });
-    compiler = webpack(devConfig);
 } else {
     mongoose.connect(configDB.url, { useNewUrlParser: true });
-    compiler = webpack(devConfig);
 }
 
 // Log requests to the console.
@@ -91,7 +87,6 @@ server.use(passport.session());
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     server.use(webpackDevMiddleware(compiler, {
         open: false,
-        publicPath: devConfig.output.publicPath,
     }));
     server.use(webpackHotMiddleware(compiler));
 }

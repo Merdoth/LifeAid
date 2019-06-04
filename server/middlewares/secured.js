@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint arrow-body-style: 0 */
 /* eslint react/jsx-filename-extension: 0 */
 /* eslint react/jsx-no-literals: 0 */
