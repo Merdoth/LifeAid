@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable import/first */
 process.env.NODE_ENV = 'test';
 import mongoose from 'mongoose';
