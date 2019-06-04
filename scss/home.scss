@@ -1,5 +1,3 @@
-
-
 .header {
     display: flex;
     flex-direction: column;
@@ -15,37 +13,37 @@
     background-repeat:   no-repeat;
     background-position: center center; 
     height: 672px;
-background: url('/static/img/ambulance.png');
+    background: url('/static/img/ambulance.png');
 }
 
 .header-cover-text {
-margin-top: 25%;
-width: 700px;
-font-style: normal;
-font-weight: 800;
-font-size: 65px;
-line-height: 110%;
-text-align: center;
-color: #000000;
-letter-spacing: 1.8px;
-margin-bottom: 20px;
-text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
+    margin-top: 25%;
+    width: 700px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 65px;
+    line-height: 110%;
+    text-align: center;
+    color: #000000;
+    letter-spacing: 1.8px;
+    margin-bottom: 20px;
+    text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
 }
 
 button {
- width: 150px;
- height: 45px;
- border-left: 15px solid #20D34A;
- border-right: 15px solid #20D34A;
- background: #283290;
- color: #FFFFFF;
- margin-left: 23%;
-font-family: Source Sans Pro;
-font-style: normal;
-font-size: 15px;
-font-weight: 500;
-box-shadow: 0px 8px 8px rgba(255, 255, 255, 0.25);
-transition: all 200ms linear;
+    width: 150px;
+    height: 45px;
+    border-left: 15px solid #20D34A;
+    border-right: 15px solid #20D34A;
+    background: #283290;
+    color: #FFFFFF;
+    margin-left: 23%;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0px 8px 8px rgba(255, 255, 255, 0.25);
+    transition: all 200ms linear;
 }
 
 button:hover {
@@ -54,7 +52,7 @@ button:hover {
 
 button:active {
     background: #20D34A;
- }
+}
 .articles {
     background: #FBFCFE;
     margin-top: 772px;
@@ -74,63 +72,63 @@ button:active {
     background: #20D34A;
 }
 .articles > p {
- color: #283290;
- font-size: 32px;
+    color: #283290;
+    font-size: 32px;
 }
 .app-content > p {
-font-family: Source Sans Pro;
-font-style: normal;
-font-weight: 600;
-margin-top: 70px;
-margin-left: 75px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    margin-top: 70px;
+    margin-left: 75px;
 }
 
 .content-wrapper {
-display: flex;
+    display: flex;
     flex-direction: row;
-   justify-content: space-evenly;
-   margin-top: 95px;
+    justify-content: space-evenly;
+    margin-top: 95px;
 }
 
 .article-content {
-width: 580px;
-height: 410px;
-background: #FFFFFF;
-border-radius: 30px;
-box-shadow: 0px 10px 10px rgba(255, 255, 255, 0.25);
+    width: 580px;
+    height: 410px;
+    background: #FFFFFF;
+    border-radius: 30px;
+    box-shadow: 0px 10px 10px rgba(255, 255, 255, 0.25);
 }
 .article-content-header {
-font-family: Source Sans Pro;
-font-style: normal;
-font-weight: 500;
-font-size: 27px;
-color: #283290;
-text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-text-align: center;
-margin-bottom: 16px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    color: #283290;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    margin-bottom: 16px;
 }
 
 .article-read {
-width: 520px;
-line-height: 24px;
-font-family: Source Sans Pro;
-font-style: normal;
-font-weight: 500;
-font-size: 15px;
-color: #7B8898;
-text-align: center;
-margin-left: 30px;
-margin-top: 5px;
-margin-bottom: 10px;
+    width: 520px;
+    line-height: 24px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #7B8898;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .article-content-a {
-cursor: pointer;
-color: #20D34A;
-font-family: Roboto;
-font-style: normal;
-font-size: small;
-font-weight: 500;
+    cursor: pointer;
+    color: #20D34A;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: small;
+    font-weight: 500;
 }
 
 .services {
@@ -145,17 +143,17 @@ font-weight: 500;
 }
 
 .services-content {
-width: 270px;
-height: 370px;
-background: #FFFFFF;
-border-bottom: 9px solid #20D34A;
-transition: transform .2s;
+    width: 270px;
+    height: 370px;
+    background: #FFFFFF;
+    border-bottom: 9px solid #20D34A;
+    transition: transform .2s;
 }
 
 .services-content:hover {
     background: #f5f7fa;
-     transform: scale(1.1); 
- }
+    transform: scale(1.1); 
+}
 
 .service-img {
     height: 199px;
@@ -165,8 +163,8 @@ transition: transform .2s;
     margin-left: 0px; 
 }
 .services-wrapper {
- margin-left: 85px;
- width: 1100px;
+    margin-left: 85px;
+    width: 1100px;
 }
 
 .services-content-text {
@@ -177,31 +175,31 @@ transition: transform .2s;
 }
 
 .service-text1 {
-font-family: Roboto;
-font-style: normal;
-font-weight: bold;
-font-size: 20px;
-color: #000000;
-line-height: 30px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+    line-height: 30px;
 }
 
 .service-text2 {
-font-family: Roboto;
-font-style: normal;
-font-weight: bold;
-font-size: 14px;
-color: #7B8898;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #7B8898;
 }
 
 .intro {
-  background: #FBFCFE;
-  margin-top: 2094px;
-  height: 520px;
+    background: #FBFCFE;
+    margin-top: 2094px;
+    height: 520px;
 }
 .intro-header {
-line-height: 40px;
-color: #283290;
-font-size: 32px;
+    line-height: 40px;
+    color: #283290;
+    font-size: 32px;
 }
 
 .intro > span > p {
@@ -225,11 +223,11 @@ font-size: 32px;
     margin-top: 2615px;
     height: 450px;
     box-shadow:inset 0 0 0 2000px rgba(79, 81, 202, 0.3);
-  }
+}
 .consult-text {
     margin-top: 180px;
 }
-  .consult-text1 {
+.consult-text1 {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 500;
@@ -237,7 +235,7 @@ font-size: 32px;
     line-height: 1px;
     color: #000000;
     text-align: center;   
-  }
+}
 
 .consult-text2 {
     font-family: Source Sans Pro;
@@ -246,9 +244,9 @@ font-size: 32px;
     font-size: 20px;
     text-align: center;
     color: #000000;
-  }
+}
 
-  .consult > button {
+.consult > button {
     margin-left: 43%;
     margin-top: 35px;
-  }
+}
