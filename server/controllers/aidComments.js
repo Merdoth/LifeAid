@@ -14,8 +14,7 @@ const averageRating = async aid => {
             commentTotal += comments[i].rating;
         }
 
-        const ratingAverage = await parseInt(commentTotal / comments.length, 10);
-        aid.rating = ratingAverage;
+        aid.rating = parseInt(commentTotal / comments.length, 10);
         aid.save();
     }
 };
