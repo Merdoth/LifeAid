@@ -1,28 +1,47 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-undef */
-/* eslint-disable sort-keys */
 import {
     CREATED, getStatusText, INTERNAL_SERVER_ERROR, NOT_FOUND, OK
 } from 'http-status-codes';
+import dotenv from 'dotenv';
+import sendMail from '../middlewares/nodemailer';
+
+dotenv.config();
+
+const {
+    MAP_API_KEY,
+} = process.env;
 
 const db = require('./promise').ReportDb;
+
+const messageBody = (coords, link) => `<b>Emergency </b> <br></br><br></br>
+    <img src="https://maps.googleapis.com/maps/api/staticmap?
+    center=${coords[0]},${coords[1]}
+    &zoom=20&size=500x500
+    &markers=color:red%7Clabel:S%7C${coords[0]},${coords[1]}
+    &key=${MAP_API_KEY}"> <br></br><br></br> 
+    ${link}`;
 
 const Reports = {
     async create(req, res) {
         const { public_id: audioId, url: audioUrl } = await req.file;
         const queryText = { ...req.body, audioId, audioUrl };
+        const { coords } = queryText;
 
         try {
             const report = await db.create(queryText);
+            sendMail('lifeaidd@gmail.com',
+                'Emergency report',
+                'faithomojola@yahoo.com',
+                messageBody(coords, audioUrl));
+
             return res.status(CREATED).send({
-                status: 'success',
                 data: { message: 'Report successfully created', report },
+                status: 'success',
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                status: 'error',
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 error,
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                status: 'error',
             });
         }
     },
@@ -35,19 +54,19 @@ const Reports = {
             const report = await db.findOneAndDelete(queryText);
             if (!report) {
                 return res.status(NOT_FOUND).send({
-                    status: 'error',
                     message: getStatusText(NOT_FOUND),
+                    status: 'error',
                 });
             }
             return res.status(OK).send({
-                status: 'success',
                 data: null,
+                status: 'success',
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                status: 'error',
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 error,
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                status: 'error',
             });
         }
     },
@@ -56,14 +75,14 @@ const Reports = {
         try {
             const reports = await db.find();
             return res.status(OK).send({
-                status: 'success',
                 data: { reports },
+                status: 'success',
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                status: 'error',
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 error,
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                status: 'error',
             });
         }
     },
@@ -76,19 +95,19 @@ const Reports = {
             const report = await db.findOne(queryText);
             if (!report) {
                 return res.status(NOT_FOUND).send({
-                    status: 'error',
                     message: getStatusText(NOT_FOUND),
+                    status: 'error',
                 });
             }
             return res.status(OK).send({
-                status: 'success',
                 data: { report },
+                status: 'success',
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                status: 'error',
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 error,
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                status: 'error',
             });
         }
     },
