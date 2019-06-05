@@ -13,6 +13,15 @@
 
 import React from 'react';
 import '../scss/home.scss';
+import { HOME_STRINGS } from '../components/constants';
+
+const {
+    ARTICLE_READ,
+    READ_MORE,
+    INTRO_HEADER,
+    CONSULT_TEXT1,
+    CONSULT_TEXT2,
+} = HOME_STRINGS;
 
 const Home = () => {
     return (
@@ -28,7 +37,7 @@ const Home = () => {
                             <br />
                         doorsteps.
                         </p>
-                        <button>READ MORE</button>
+                        <button>{READ_MORE}</button>
                     </div>
                 </div>
                 <div className="articles app-content" id="articles">
@@ -38,15 +47,18 @@ const Home = () => {
                         <div className="article-content article1">
                             <p className="article-content-header">Why First Aid?</p>
                             <p className="article-read">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris rhoncus aenean vel elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris
+                                {ARTICLE_READ}
                                 <a className="article-content-a"> Read more...</a>
                             </p>
                         </div>
                         <div className="article-content">
                             <p className="article-content-header">What Should be in a First Aid kit?</p>
                             <p className="article-read">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris rhoncus aenean vel elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris
-                                <a className="article-content-a"> Read more...</a>
+                                {ARTICLE_READ}
+                                <a className="article-content-a">
+                                    {READ_MORE}
+                                    ...
+                                </a>
                             </p>
                         </div>
                     </div>
@@ -59,10 +71,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                             <img className="service-img" src="/static/img/help.jpg" alt="Smiley face" />
                             <span className="services-content-text">
                                 <p className="service-text1">
-Emergency Contact
+                                    Emergency Contact
                                     <br />
                                     {' '}
-Number
+                                    Number
                                 </p>
                                 <p className="service-text2">Help Desk</p>
                             </span>
@@ -71,10 +83,10 @@ Number
                             <img className="service-img" src="/static/img/cardiac.jpg" alt="Smiley face" />
                             <span className="services-content-text">
                                 <p className="service-text1">
-Instructions On How To
+                                    Instructions On How To
                                     <br />
                                     {' '}
-Administer First Aid
+                                    Administer First Aid
                                 </p>
                                 <p className="service-text2">Help Desk</p>
                             </span>
@@ -83,10 +95,10 @@ Administer First Aid
                             <img className="service-img" src="/static/img/care.jpg" alt="Smiley face" />
                             <span className="services-content-text">
                                 <p className="service-text1">
-Opportunity To Ask Doctors
+                                    Opportunity To Ask Doctors
                                     <br />
                                     {' '}
-Questions
+                                    Questions
                                 </p>
                                 <p className="service-text2">Help Desk</p>
                             </span>
@@ -96,25 +108,29 @@ Questions
                 <div className="intro app-content">
                     <hr />
                     <p className="intro-header">
-A great knowledge of what to do during emergencies
+                        A great knowledge of what to do during emergencies
                         <br />
                         {' '}
-can save you alot of deaths there’s why;
+                        can save you alot of deaths there’s why;
                     </p>
                     <span>
                         <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris rhoncus aenean vel elit. Dui faucibus in ornare quam viverra. In est ante in nibh mauris cursus. Vel pharetra vel turpis nunc eget lorem. Purus ut faucibus pulvinar elementum.Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris rhoncus aenean vel elit Nibh ipsum consequat nisl vel pretium.Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris rhoncus aenean vel elit. Dignissim sodales ut eu sem integer,
+                            {INTRO_HEADER}
                             {' '}
-                            <a className="article-content-a">  Read more...</a>
+                            <a className="article-content-a">
+                                {READ_MORE}
+                                ...
+
+                            </a>
                         </p>
                     </span>
                 </div>
                 <div className="consult app-content">
                     <div className="consult-text">
-                        <p className="consult-text1">Need A Personal Health Plan? or A Counselling Session?</p>
-                        <p className="consult-text2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p className="consult-text1">{CONSULT_TEXT1}</p>
+                        <p className="consult-text2">{CONSULT_TEXT2}</p>
                     </div>
-                    <button>READ MORE</button>
+                    <button>{READ_MORE}</button>
                 </div>
             </div>
         </React.Fragment>
