@@ -49,8 +49,9 @@ const Comments = {
     },
 
     async deleteComment(req, res) {
+        const { aidId, commentId } = req.params;
         const queryText = {
-            _id: req.params.aidId,
+            _id: aidId,
         };
 
         try {
@@ -63,7 +64,7 @@ const Comments = {
                 });
             }
 
-            aid.comments.id({ _id: req.params.commentId }).remove();
+            aid.comments.id({ _id: commentId }).remove();
             averageRating(aid);
 
             return res.status(CREATED).send({
@@ -80,8 +81,9 @@ const Comments = {
     },
 
     async getOne(req, res) {
+        const { aidId, commentId } = req.params;
         const queryText = {
-            _id: req.params.aidId,
+            _id: aidId,
         };
         try {
             const aid = await db.findOne(queryText);
@@ -93,7 +95,7 @@ const Comments = {
                 });
             }
 
-            const comment = await aid.comments.id(req.params.commentId);
+            const comment = await aid.comments.id(commentId);
 
             return res.status(CREATED).send({
                 data: { comment },
@@ -109,8 +111,9 @@ const Comments = {
     },
 
     async updateComment(req, res) {
+        const { aidId, commentId } = req.params;
         const queryText = {
-            _id: req.params.aidId,
+            _id: aidId,
         };
 
         try {
@@ -123,7 +126,7 @@ const Comments = {
                 });
             }
 
-            let comment = await aid.comments.id(req.params.commentId);
+            let comment = await aid.comments.id(commentId);
             const { author, rating, reviewText } = req.body;
 
             comment = {
