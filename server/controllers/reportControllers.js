@@ -12,11 +12,11 @@ const {
 
 const db = require('./promise').ReportDb;
 
-const messageBody = (lat, lng, link) => `<b>Emergency </b> <br></br><br></br>
+const messageBody = (coords, link) => `<b>Emergency </b> <br></br><br></br>
     <img src="https://maps.googleapis.com/maps/api/staticmap?
-    center=${lat},${lng}
+    center=${coords[0]},${coords[1]}
     &zoom=20&size=500x500
-    &markers=color:red%7Clabel:S%7C${lat},${lng}
+    &markers=color:red%7Clabel:S%7C${coords[0]},${coords[1]}
     &key=${MAP_API_KEY}"> <br></br><br></br> 
     ${link}`;
 
@@ -31,7 +31,7 @@ const Reports = {
             sendMail('lifeaidd@gmail.com',
                 'Emergency report',
                 'faithomojola@yahoo.com',
-                messageBody(coords[0], coords[1], audioUrl));
+                messageBody(coords, audioUrl));
 
             return res.status(CREATED).send({
                 data: { message: 'Report successfully created', report },
