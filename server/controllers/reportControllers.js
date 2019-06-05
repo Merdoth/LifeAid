@@ -3,6 +3,7 @@ import {
 } from 'http-status-codes';
 import dotenv from 'dotenv';
 import sendMail from '../middlewares/nodemailer';
+import { receiver, sender, title } from '../middlewares/constant';
 
 dotenv.config();
 
@@ -12,13 +13,16 @@ const {
 
 const db = require('./promise').ReportDb;
 
-const messageBody = (coords, link) => `<b>Emergency </b> <br></br><br></br>
+const messageBody = (coords, link) => {
+    const [lat, lng] = coords;
+    return `<b>Emergency </b> <br></br><br></br>
     <img src="https://maps.googleapis.com/maps/api/staticmap?
-    center=${coords[0]},${coords[1]}
+    center=${lat},${lng}
     &zoom=20&size=500x500
-    &markers=color:red%7Clabel:S%7C${coords[0]},${coords[1]}
+    &markers=color:red%7Clabel:S%7C${lat},${lng}
     &key=${MAP_API_KEY}"> <br></br><br></br> 
     ${link}`;
+};
 
 const Reports = {
     async create(req, res) {
@@ -28,9 +32,9 @@ const Reports = {
 
         try {
             const report = await db.create(queryText);
-            sendMail('lifeaidd@gmail.com',
-                'Emergency report',
-                'faithomojola@yahoo.com',
+            sendMail(sender,
+                title,
+                receiver,
                 messageBody(coords, audioUrl));
 
             return res.status(CREATED).send({
