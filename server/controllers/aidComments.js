@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-/* eslint-disable sort-keys */
 import {
     INTERNAL_SERVER_ERROR, CREATED, NOT_FOUND, getStatusText
 } from 'http-status-codes';
@@ -7,14 +5,16 @@ import {
 const db = require('./promise').AidDb;
 
 const averageRating = async aid => {
-    if (aid.comments && aid.comments.length > 0) {
-        const commentCount = await aid.comments.length;
+    const { comments } = aid;
+
+    if (comments) {
         let commentTotal = 0;
-        for (let i = 0; i < commentCount; i += 1) {
-            commentTotal += aid.comments[i].rating;
+
+        for (let i = 0; i < comments.length; i += 1) {
+            commentTotal += comments[i].rating;
         }
 
-        const ratingAverage = await parseInt(commentTotal / commentCount, 10);
+        const ratingAverage = await parseInt(commentTotal / comments.length, 10);
         aid.rating = ratingAverage;
         aid.save();
     }
@@ -23,16 +23,12 @@ const averageRating = async aid => {
 const Comments = {
     async create(req, res) {
         try {
-            const query = {
-                _id: req.params.aidId,
-            };
-
-            const aid = await db.findOne(query);
+            const aid = await db.findOne({ _id: req.params.aidId });
 
             if (!aid) {
                 return res.status(NOT_FOUND).send({
-                    status: 'error',
                     message: getStatusText(NOT_FOUND),
+                    status: 'error',
                 });
             }
 
@@ -41,14 +37,14 @@ const Comments = {
             averageRating(aid);
 
             return res.status(CREATED).send({
-                status: 'success',
                 data: { aid, message: 'Comment successfully created' },
+                status: 'success',
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                status: 'error',
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 error,
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                status: 'error',
             });
         }
     },
@@ -63,8 +59,8 @@ const Comments = {
 
             if (!aid) {
                 return res.status(NOT_FOUND).send({
-                    status: 'error',
                     message: getStatusText(NOT_FOUND),
+                    status: 'error',
                 });
             }
 
@@ -72,14 +68,14 @@ const Comments = {
             averageRating(aid);
 
             return res.status(CREATED).send({
-                status: 'success',
                 data: { aid, message: 'Comment successfully removed' },
+                status: 'success',
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                status: 'error',
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 error,
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                status: 'error',
             });
         }
     },
@@ -93,22 +89,22 @@ const Comments = {
 
             if (!aid) {
                 return res.status(NOT_FOUND).send({
-                    status: 'error',
                     message: getStatusText(NOT_FOUND),
+                    status: 'error',
                 });
             }
 
             const comment = await aid.comments.id(req.params.commentId);
 
             return res.status(CREATED).send({
-                status: 'success',
                 data: { comment },
+                status: 'success',
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                status: 'error',
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 error,
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                status: 'error',
             });
         }
     },
@@ -123,27 +119,30 @@ const Comments = {
 
             if (!aid) {
                 return res.status(NOT_FOUND).send({
-                    status: 'error',
                     message: getStatusText(NOT_FOUND),
+                    status: 'error',
                 });
             }
 
-            const comment = await aid.comments.id(req.params.commentId);
+            let comment = await aid.comments.id(req.params.commentId);
             const { author, rating, reviewText } = req.body;
-            comment.author = author;
-            comment.rating = rating;
-            comment.reviewText = reviewText;
-            averageRating(aid);
+
+            comment = {
+                ...comment,
+                author,
+                rating,
+                reviewText,
+            };
 
             return res.status(CREATED).send({
-                status: 'success',
                 data: { comment, message: 'Comment successfully updated' },
+                status: 'success',
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                status: 'error',
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 error,
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                status: 'error',
             });
         }
     },

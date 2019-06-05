@@ -1,4 +1,3 @@
-/* eslint-disable sort-keys */
 import express from 'express';
 import aidController from '../controllers/aidControllers';
 import reportController from '../controllers/reportControllers';
@@ -37,6 +36,7 @@ router.get('/reports/:id', reportController.getOne);
 // Delete a Report with id
 router.delete('/reports/:id', reportController.deleteReport);
 
+// Comment route
 // Create a new Aid Comment
 router.post('/aids/:aidId/comments', commentController.create);
 
