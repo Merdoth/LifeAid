@@ -10,9 +10,10 @@ const averageRating = async aid => {
     if (comments) {
         let commentTotal = 0;
 
-        for (let i = 0; i < comments.length; i += 1) {
-            commentTotal += comments[i].rating;
-        }
+        comments.forEach(comment => {
+            const { rating } = comment;
+            commentTotal += rating;
+        });
 
         aid.rating = parseInt(commentTotal / comments.length, 10);
         aid.save();
