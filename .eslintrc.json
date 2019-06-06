@@ -83,9 +83,10 @@
     "react/jsx-closing-bracket-location": "error",
     "react/void-dom-elements-no-children": "error",
     "react/jsx-tag-spacing": "error",
-    "react/jsx-no-literals": "error",
+    "react/jsx-no-literals": 0,
     "react/jsx-wrap-multilines": "error",
-    "react/jsx-no-comment-textnodes": "error"
+    "react/jsx-no-comment-textnodes": "error",
+    "react/jsx-filename-extension": 0
   },
   "settings": {
     "react": {
