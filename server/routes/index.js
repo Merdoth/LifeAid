@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 import express from 'express';
 import aidController from '../controllers/aidControllers';
 import aidComments from '../controllers/aidComments';

@@ -1,58 +1,47 @@
+/* eslint-disable camelcase */
+/* eslint-disable sort-keys */
 import {
     INTERNAL_SERVER_ERROR, CREATED, NOT_FOUND, getStatusText
 } from 'http-status-codes';
 
 const db = require('./promise').AidDb;
 
-const averageRating = async aid => {
-    const { comments } = aid;
-
-    if (comments) {
-        let commentTotal = 0;
-
-        comments.forEach(comment => {
-            const { rating } = comment;
-            commentTotal += rating;
-        });
-
-        aid.rating = parseInt(commentTotal / comments.length, 10);
-        aid.save();
-    }
-};
-
 const Comments = {
     async create(req, res) {
         try {
-            const aid = await db.findOne({ _id: req.params.aidId });
+            const query = {
+                _id: req.params.aidId,
+            };
+
+            const aid = await db.findOne(query);
 
             if (!aid) {
                 return res.status(NOT_FOUND).send({
-                    message: getStatusText(NOT_FOUND),
                     status: 'error',
+                    message: getStatusText(NOT_FOUND),
                 });
             }
 
             const queryText = req.body;
             aid.comments.push(queryText);
-            averageRating(aid);
+            aid.save();
 
             return res.status(CREATED).send({
-                data: { aid, message: 'Comment successfully created' },
                 status: 'success',
+                data: { aid, message: 'Comment successfully created' },
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                error,
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 status: 'error',
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                error,
             });
         }
     },
 
     async deleteComment(req, res) {
-        const { aidId, commentId } = req.params;
         const queryText = {
-            _id: aidId,
+            _id: req.params.aidId,
         };
 
         try {
@@ -60,61 +49,59 @@ const Comments = {
 
             if (!aid) {
                 return res.status(NOT_FOUND).send({
-                    message: getStatusText(NOT_FOUND),
                     status: 'error',
+                    message: getStatusText(NOT_FOUND),
                 });
             }
 
-            aid.comments.id({ _id: commentId }).remove();
-            averageRating(aid);
+            aid.comments.id({ _id: req.params.commentId }).remove();
+            aid.save();
 
             return res.status(CREATED).send({
-                data: { aid, message: 'Comment successfully removed' },
                 status: 'success',
+                data: { aid, message: 'Comment successfully removed' },
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                error,
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 status: 'error',
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                error,
             });
         }
     },
 
     async getOne(req, res) {
-        const { aidId, commentId } = req.params;
         const queryText = {
-            _id: aidId,
+            _id: req.params.aidId,
         };
         try {
             const aid = await db.findOne(queryText);
 
             if (!aid) {
                 return res.status(NOT_FOUND).send({
-                    message: getStatusText(NOT_FOUND),
                     status: 'error',
+                    message: getStatusText(NOT_FOUND),
                 });
             }
 
-            const comment = await aid.comments.id(commentId);
+            const comment = await aid.comments.id(req.params.commentId);
 
             return res.status(CREATED).send({
-                data: { comment },
                 status: 'success',
+                data: { comment },
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                error,
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 status: 'error',
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                error,
             });
         }
     },
 
     async updateComment(req, res) {
-        const { aidId, commentId } = req.params;
         const queryText = {
-            _id: aidId,
+            _id: req.params.aidId,
         };
 
         try {
@@ -122,30 +109,27 @@ const Comments = {
 
             if (!aid) {
                 return res.status(NOT_FOUND).send({
-                    message: getStatusText(NOT_FOUND),
                     status: 'error',
+                    message: getStatusText(NOT_FOUND),
                 });
             }
 
-            let comment = await aid.comments.id(commentId);
+            const comment = await aid.comments.id(req.params.commentId);
             const { author, rating, reviewText } = req.body;
-
-            comment = {
-                ...comment,
-                author,
-                rating,
-                reviewText,
-            };
+            comment.author = author;
+            comment.rating = rating;
+            comment.reviewText = reviewText;
+            aid.save();
 
             return res.status(CREATED).send({
-                data: { comment, message: 'Comment successfully updated' },
                 status: 'success',
+                data: { comment, message: 'Comment successfully updated' },
             });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send({
-                error,
-                message: getStatusText(INTERNAL_SERVER_ERROR),
                 status: 'error',
+                message: getStatusText(INTERNAL_SERVER_ERROR),
+                error,
             });
         }
     },
