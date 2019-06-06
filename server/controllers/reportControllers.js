@@ -9,8 +9,10 @@ const db = require('./promise').ReportDb;
 
 const Reports = {
     async create(req, res) {
-        const { public_id: audioId, url: audioUrl } = await req.file;
-        const queryText = { ...req.body, audioId, audioUrl };
+        const queryText = req.body;
+        const { public_id, url } = await req.file;
+        queryText.audioId = public_id;
+        queryText.audioUrl = url;
 
         try {
             const report = await db.create(queryText);
