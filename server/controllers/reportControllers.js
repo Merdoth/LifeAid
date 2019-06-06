@@ -116,5 +116,4 @@ const Reports = {
         }
     },
 };
-
 module.exports = Reports;
