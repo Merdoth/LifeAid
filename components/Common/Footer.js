@@ -4,8 +4,10 @@ import React from 'react';
 import Head from 'next/head';
 import './common.scss';
 import {
-    HOME_STRINGS, ICONS,
-    FOOTER_LINK, FOOTER_LINK2
+    HOME_STRINGS,
+    ICONS,
+    FOOTER_LINK,
+    FOOTER_LINK2
 }
     from '../constants';
 
