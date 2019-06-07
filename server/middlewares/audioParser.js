@@ -13,7 +13,7 @@ const storage = cloudinaryStorage({
     cloudinary,
     params: {
         folder: 'audio',
-        format: 'mp4',
+        format: 'mp3',
         resource_type: 'video',
     },
 });
