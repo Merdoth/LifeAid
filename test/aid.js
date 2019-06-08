@@ -181,7 +181,6 @@ describe('reports', () => {
     describe('GET /reports/:id', () => {
         it('should GET a report by the given id', async () => {
             const testReport = {
-                _id: '1',
                 audioId: 'audio/swlxfpt1trwiaaybbune',
                 audioUrl: 'audio url link',
                 coords: [
@@ -245,6 +244,92 @@ describe('reports', () => {
 
             const response = await fetch(`${TEST_URL}/api/v1/reports/1`, {
                 body: testReport,
+                method: 'DELETE',
+            });
+            const data = await response.json();
+            assert.deepStrictEqual(data, []);
+        });
+    });
+});
+
+describe('comments', () => {
+    describe('GET /aids/aidId/comments/commentId', () => {
+        it('should GET a comment by the given id', async () => {
+            const testComment = {
+                _id: '1',
+                author: 'Faith Omojola',
+                createdOn: '2019-06-05T08:21:55.427Z',
+                rating: 1,
+                reviewText: 'itis very insightful',
+            };
+            scope
+                .get('/api/v1/aids/1/comments/commentId')
+                .reply(200, testComment);
+
+            const response = await fetch(`${TEST_URL}/api/v1/aids/1/comments/1`);
+            const data = await response.json();
+
+            assert.deepStrictEqual(data, testComment);
+        });
+    });
+    describe('PUT /aids/aidId/comments/commentId', () => {
+        it('it should UPDATE a comment given the id', async () => {
+            const updateData = {
+                author: 'updated author',
+            };
+            const testComment = {
+                _id: '1',
+                author: 'Faith Omojola',
+                createdOn: '2019-06-05T08:21:55.427Z',
+                rating: 1,
+                reviewText: 'itis very insightful',
+            };
+            scope
+                .put('/api/v1/aids/1')
+                .reply(200, { ...testComment, ...updateData });
+
+            const response = await fetch(`${TEST_URL}/api/v1/aids/1/comments/1`, {
+                body: updateData,
+                method: 'PUT',
+            });
+            const data = await response.json();
+            assert.deepStrictEqual(data, { ...testComment, ...updateData });
+        });
+    });
+    describe('/POST comment', () => {
+        it('it should CREATE a report', async () => {
+            const testComment = {
+                author: 'Faith Omojola',
+                createdOn: '2019-06-05T08:21:55.427Z',
+                rating: 1,
+                reviewText: 'itis very insightful',
+            };
+            scope
+                .post('/api/v1/aids/1/comments')
+                .reply(200, testComment);
+
+            const response = await fetch(`${TEST_URL}/api/v1/aids/1/comments`, {
+                body: testComment,
+                method: 'POST',
+            });
+            const data = await response.json();
+            assert.deepStrictEqual(data, testComment);
+        });
+    });
+    describe('DELETE /aids/aidId/comments/commentId comment', () => {
+        it('it should DELETE a comment given the id', async () => {
+            const testComment = {
+                author: 'Faith Omojola',
+                createdOn: '2019-06-05T08:21:55.427Z',
+                rating: 1,
+                reviewText: 'itis very insightful',
+            };
+            scope
+                .delete('/api/v1/aids/1/comments/1')
+                .reply(200, []);
+
+            const response = await fetch(`${TEST_URL}/api/v1/aids/1/comments/1`, {
+                body: testComment,
                 method: 'DELETE',
             });
             const data = await response.json();
