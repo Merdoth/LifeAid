@@ -1,11 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-vars */
 const path = require('path');
 const glob = require('glob');
 
 module.exports = {
-    // eslint-disable-next-line no-unused-vars
-    webpack: (config, { dev }) => {
+    webpack: config => {
         config.module.rules.push(
             {
                 loader: 'emit-file-loader',
@@ -51,7 +49,7 @@ const withCss = require('@zeit/next-css');
 
 // fix: prevents error when .css files are required by node
 if (typeof require !== 'undefined') {
-    require.extensions['.css'] = file => {};
+    require.extensions['.css'] = {};
 }
 
 module.exports = withCss(withSass());
