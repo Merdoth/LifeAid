@@ -263,7 +263,7 @@ describe('comments', () => {
                 reviewText: 'itis very insightful',
             };
             scope
-                .get('/api/v1/aids/1/comments/commentId')
+                .get('/api/v1/aids/1/comments/1')
                 .reply(200, testComment);
 
             const response = await fetch(`${TEST_URL}/api/v1/aids/1/comments/1`);
@@ -285,7 +285,7 @@ describe('comments', () => {
                 reviewText: 'itis very insightful',
             };
             scope
-                .put('/api/v1/aids/1')
+                .put('/api/v1/aids/1/comments/1')
                 .reply(200, { ...testComment, ...updateData });
 
             const response = await fetch(`${TEST_URL}/api/v1/aids/1/comments/1`, {
