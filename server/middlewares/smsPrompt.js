@@ -9,11 +9,11 @@ const {
 const client = new Twilio(ACCOUNTSID, AUTHTOKEN);
 
 const sendSms = async (messageBody, receiver) => {
-    client.messages
+    await client.messages
         .create({
             body: messageBody,
             from: TWILIONUMBER,
-            to: receiver,
+            to: `+234${receiver}`,
         });
 };
 
