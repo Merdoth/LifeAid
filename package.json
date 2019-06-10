@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node dist/server/app.js",
     "dev": "nodemon --watch server --exec babel-node -- ./server/app.js",
-    "lint": "eslint --ext .js --ext .jsx . --fix"
+    "lint": "eslint --ext .js --ext .jsx . --fix",
+    "dev_client": "next"
   },
   "repository": {
     "type": "git",
@@ -48,8 +49,9 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@material-ui/core": "^3.9.3",
+    "@material-ui/core": "^4.0.0-rc.0",
     "@types/react": "^16.8.17",
+    "@zeit/next-sass": "^1.0.1",
     "auth0-js": "^9.10.2",
     "axios": "^0.18.0",
     "bcrypt": "^3.0.6",
@@ -66,6 +68,7 @@
     "express-validator": "^5.3.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "fs": "^0.0.1-security",
+    "glob": "^7.1.4",
     "history": "^4.9.0",
     "html-webpack-exclude-assets-plugin": "0.0.7",
     "html-webpack-plugin": "^3.2.0",
@@ -81,9 +84,10 @@
     "multer-storage-cloudinary": "^2.2.1",
     "nexmo": "^2.4.1",
     "next": "^8.1.0",
-    "nodemailer": "^6.2.1",
     "nock": "^10.0.6",
     "node-fetch": "^2.6.0",
+    "node-sass": "^4.12.0",
+    "nodemailer": "^6.2.1",
     "nodemon": "^1.19.0",
     "passport": "^0.4.0",
     "passport-auth0": "^1.1.0",
