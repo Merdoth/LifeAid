@@ -4,15 +4,15 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const {
-    ACCOUNTSID, AUTHTOKEN, TWILIONUMBER,
+    ACCOUNTS_ID, AUTH_TOKEN, TWILIO_NUMBER,
 } = process.env;
-const client = new Twilio(ACCOUNTSID, AUTHTOKEN);
+const client = new Twilio(ACCOUNTS_ID, AUTH_TOKEN);
 
-const sendSms = async (messageBody, receiver) => {
-    await client.messages
+const sendSms = (messageBody, receiver) => {
+    client.messages
         .create({
             body: messageBody,
-            from: TWILIONUMBER,
+            from: TWILIO_NUMBER,
             to: `+234${receiver}`,
         });
 };
