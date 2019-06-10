@@ -21,6 +21,8 @@ const {
     CONSULT_TEXT2,
     ARTICLE_HEADER1,
     ARTICLE_HEADER2,
+    HELP_DESK,
+    SERVICES,
 } = HOME_STRINGS;
 
 const Home = () => {
@@ -66,7 +68,7 @@ const Home = () => {
                 </div>
                 <div className="services app-content">
                     <hr />
-                    <p>Our Featured Services</p>
+                    <p>{SERVICES}</p>
                     <div className="content-wrapper services-wrapper">
                         <div className="services-content">
                             <img className="service-img" src="/static/img/help.jpg" alt="Smiley face"/>
@@ -77,7 +79,7 @@ const Home = () => {
                                     {' '}
                                     Number
                                 </p>
-                                <p className="service-text2">Help Desk</p>
+                                <p className="service-text2">{HELP_DESK}</p>
                             </span>
                         </div>
                         <div className="services-content">
@@ -89,11 +91,11 @@ const Home = () => {
                                     {' '}
                                     Administer First Aid
                                 </p>
-                                <p className="service-text2">Help Desk</p>
+                                <p className="service-text2">{HELP_DESK}</p>
                             </span>
                         </div>
                         <div className="services-content">
-                            <img className="service-img" src="/static/img/care.jpg" alt="Smiley face" />
+                            <img className="serviceI" src="/static/img/care.jpg" alt="Smiley face" />
                             <span className="services-content-text">
                                 <p className="service-text1">
                                     Opportunity To Ask Doctors
@@ -101,7 +103,7 @@ const Home = () => {
                                     {' '}
                                     Questions
                                 </p>
-                                <p className="service-text2">Help Desk</p>
+                                <p className="service-text2">{HELP_DESK}</p>
                             </span>
                         </div>
                     </div>
