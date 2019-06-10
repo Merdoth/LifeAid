@@ -10,10 +10,6 @@ const scope = nock(TEST_URL);
 describe('aids', () => {
     describe('GET /aids', () => {
         it('it should GET a list of all the "Aids"', async () => {
-            /**
-                these should be fake aids, create them yourself and make them resemble
-                what this endpoints actually returns
-            */
             const testAidList = [
                 {
                     _id: 1,
