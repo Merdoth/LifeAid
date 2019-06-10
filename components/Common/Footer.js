@@ -21,6 +21,7 @@ const {
     OFFICE,
     ADDRESS,
     COPYRIGHT,
+    LIFE,
 } = HOME_STRINGS;
 
 const Footer = () => (
@@ -108,7 +109,7 @@ const Footer = () => (
                         {' '}
                             by
                         {' '}
-                        <a href="#">LifeAID</a>
+                        <a href="#">{LIFE}</a>
                     </p>
 
                 </div>
