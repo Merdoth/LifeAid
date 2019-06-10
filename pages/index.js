@@ -12,6 +12,8 @@
 // eslint-disable-next-line react/button-has-type
 
 import React from 'react';
+import NavigationBar from '../components/Common/NavigationBar';
+import Footer from '../components/Common/Footer';
 import '../scss/home.scss';
 import { HOME_STRINGS } from '../components/constants';
 
@@ -28,6 +30,7 @@ const Home = () => {
         <React.Fragment>
             <div className="wrapper">
                 <div className="header">
+                    <NavigationBar />
                     <div className="header-cover">
                         <p className="header-cover-text">
                         Emergency First Aid
@@ -132,6 +135,7 @@ const Home = () => {
                     </div>
                     <button>{READ_MORE}</button>
                 </div>
+                <Footer />
             </div>
         </React.Fragment>
     );
