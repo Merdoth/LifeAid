@@ -3,7 +3,10 @@ import {
 } from 'http-status-codes';
 import dotenv from 'dotenv';
 import sendMail from '../middlewares/nodemailer';
-import { receiver, sender, title } from '../middlewares/constant';
+import sendSms from '../middlewares/smsPrompt';
+import {
+    receiver, smsBody, sender, title
+} from '../middlewares/constant';
 
 dotenv.config();
 
@@ -28,7 +31,7 @@ const Reports = {
     async create(req, res) {
         const { public_id: audioId, url: audioUrl } = await req.file;
         const queryText = { ...req.body, audioId, audioUrl };
-        const { coords } = queryText;
+        const { coords, number } = queryText;
 
         try {
             const report = await db.create(queryText);
@@ -37,6 +40,7 @@ const Reports = {
                 receiver,
                 messageBody(coords, audioUrl));
 
+            sendSms(smsBody, number);
             return res.status(CREATED).send({
                 data: { message: 'Report successfully created', report },
                 status: 'success',
