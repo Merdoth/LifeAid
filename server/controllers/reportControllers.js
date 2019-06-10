@@ -4,6 +4,7 @@
 import {
     CREATED, getStatusText, INTERNAL_SERVER_ERROR, NOT_FOUND, OK
 } from 'http-status-codes';
+import sendSms from '../middlewares/smsPrompt';
 
 const db = require('./promise').ReportDb;
 
