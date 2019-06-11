@@ -3,6 +3,10 @@
 export const HOME_STRINGS = {
     ADDRESS:
     '8 Kelvin Str. Los Angeles, CA',
+    ARTICLE_HEADER1:
+    'What Should be in a First Aid kit?',
+    ARTICLE_HEADER2:
+    'Why First Aid?',
     ARTICLE_READ:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris rhoncus aenean vel elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris',
     CONSULT_TEXT1:
@@ -23,6 +27,8 @@ export const HOME_STRINGS = {
     'sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay',
     INTRO_HEADER:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris rhoncus aenean vel elit. Dui faucibus in ornare quam viverra. In est ante in nibh mauris cursus. Vel pharetra vel turpis nunc eget lorem. Purus ut faucibus pulvinar elementum.Nunc non blandit massa enim. Donec enim diam vulputate ut pharetra sit. Id faucibus nisl tincidunt eget nullam. Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris rhoncus aenean vel elit Nibh ipsum consequat nisl vel pretium.Vitae congue eu consequat ac felis donec et odio pellentesque. Cursus vitae congue mauris rhoncus aenean vel elit. Dignissim sodales ut eu sem integer,',
+    LIFE:
+    'LifeAID',
     NUMBER:
     '+45 677 8993 223',
     OFFICE:
@@ -99,7 +105,7 @@ export const FOOTER_LINK2 = [
 export const NAV_LINK = [
     {
         id: 1,
-        link: '/',
+        link: '/#',
         text: 'Home',
     },
     {

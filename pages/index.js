@@ -1,19 +1,15 @@
-/* eslint-disable react/button-has-type */
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable max-len */
-/* eslint react/jsx-filename-extension: 0 */
-/* eslint react/jsx-no-literals: 0 */
-/* eslint arrow-body-style: 0 */
-// eslint-disable-next-line react/jsx-no-comment-textnodes
-// eslint-disable-next-line react/jsx-no-undef
-// eslint-disable-next-line jsx-a11y/anchor-is-valid
-// eslint-disable-next-line react/button-has-type
-
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import '../scss/home.scss';
+import '../scss/_globals.scss';
 import { HOME_STRINGS } from '../components/constants';
+import { ABOUT_STRING } from '../components/About/constants';
+
+const {
+    INTRO_TEXT1,
+    INTRO_TEXT2,
+} = ABOUT_STRING;
 
 const {
     ARTICLE_READ,
@@ -21,6 +17,8 @@ const {
     INTRO_HEADER,
     CONSULT_TEXT1,
     CONSULT_TEXT2,
+    ARTICLE_HEADER1,
+    ARTICLE_HEADER2,
 } = HOME_STRINGS;
 
 const Home = () => {
@@ -37,7 +35,7 @@ const Home = () => {
                             <br />
                         doorsteps.
                         </p>
-                        <button>{READ_MORE}</button>
+                        <button type="button">{READ_MORE}</button>
                     </div>
                 </div>
                 <div className="articles app-content" id="articles">
@@ -45,14 +43,14 @@ const Home = () => {
                     <p>Our Featured Articles</p>
                     <div className="content-wrapper">
                         <div className="article-content article1">
-                            <p className="article-content-header">Why First Aid?</p>
+                            <p className="article-content-header">{ARTICLE_HEADER2}</p>
                             <p className="article-read">
                                 {ARTICLE_READ}
                                 <a className="article-content-a"> Read more...</a>
                             </p>
                         </div>
                         <div className="article-content">
-                            <p className="article-content-header">What Should be in a First Aid kit?</p>
+                            <p className="article-content-header">{ARTICLE_HEADER1}</p>
                             <p className="article-read">
                                 {ARTICLE_READ}
                                 <a className="article-content-a">
@@ -68,7 +66,7 @@ const Home = () => {
                     <p>Our Featured Services</p>
                     <div className="content-wrapper services-wrapper">
                         <div className="services-content">
-                            <img className="service-img" src="/static/img/help.jpg" alt="Smiley face" />
+                            <img className="service-img" src="/static/img/help.jpg" alt="Smiley face"/>
                             <span className="services-content-text">
                                 <p className="service-text1">
                                     Emergency Contact
@@ -108,10 +106,10 @@ const Home = () => {
                 <div className="intro app-content">
                     <hr />
                     <p className="intro-header">
-                        A great knowledge of what to do during emergencies
+                        {INTRO_TEXT1}
                         <br />
                         {' '}
-                        can save you alot of deaths there’s why;
+                        {INTRO_TEXT2}
                     </p>
                     <span>
                         <p>
@@ -130,7 +128,7 @@ const Home = () => {
                         <p className="consult-text1">{CONSULT_TEXT1}</p>
                         <p className="consult-text2">{CONSULT_TEXT2}</p>
                     </div>
-                    <button>{READ_MORE}</button>
+                    <button type="button">{READ_MORE}</button>
                 </div>
             </div>
         </React.Fragment>
