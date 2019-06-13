@@ -30,18 +30,16 @@ const RegisterPage = () => {
                 phoneNumber: userPhonerNumber,
             };
             axios.post('/api/v1/user', data)
-                .then(res => {
+                .then(() => {
+                    setMessage('Registration Successful. You can Login');
                     setEmail('');
                     setFirstName('');
                     setLastName('');
                     setPassword('');
                     setphoneNumber('');
-                    setMessage('Registration Successful. You can Login');
-                    console.log(res.data);
                 })
                 .catch((error) => {
                     setMessage(error);
-                    console.log(error);
                 });
         }
     };
@@ -69,7 +67,9 @@ const RegisterPage = () => {
                             <Grid container>
                                 <Grid item>
                                     <h4>
-                                        {message ? 'Your Registration was Successful. You can Login ' : ''}
+                                        {message
+                                            ? 'Your Registration was Successful. You can Login '
+                                            : ''}
                                     </h4>
                                 </Grid>
                             </Grid>
