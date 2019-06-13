@@ -125,7 +125,7 @@ export const NAV_LINK = [
     },
     {
         id: 5,
-        link: '/login',
-        text: 'Login',
+        link: '/register',
+        text: 'Register',
     },
 ];
