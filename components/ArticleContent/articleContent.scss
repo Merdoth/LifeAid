@@ -1,0 +1,203 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 996.43px;  
+}
+.header-cover {
+    position: absolute;
+    margin-top: 100px;
+    width: 100%;
+    background-size: contain;       
+    background-repeat:  no-repeat;
+    background-position: center center; 
+    height: 330px;
+    background: url("/static/img/service-emeg.png");
+    box-shadow:inset 0 0 0 2000px rgba(39, 39, 245, 0.3);
+}
+
+.header-cover-text {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: 1.8px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 81px;
+    margin-top: 112px;
+    margin-bottom: 15px;
+}
+.text1 {
+    color: #20D34A;
+    margin-bottom: 0px;
+    text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
+}
+.text2 {
+    color: #FFFFFF;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
+}
+.desc {
+    margin-left: 95px;
+    margin-top: 5px;
+    color: #FFFFFF;
+    letter-spacing: 1.5px;
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
+}
+.app-content {
+    position: absolute;
+    width: 100%;
+}
+.app-content > hr {
+    border: 0px;
+    position: absolute;
+    width: 212px;
+    height: 3px;
+    margin-left: 526px;
+    margin-top: -25px;
+    background: #20D34A;
+}
+.articles > p {
+    color: #283290;
+    font-size: 38px;
+}
+.articles {
+    background: #FFFFFF;
+    margin-top: 430px;
+    height: 1860px;
+}
+.app-content > p {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 78px;
+    text-align: center;
+    margin-bottom: 32px;
+ }
+
+.article-content {
+    width: 580px;
+    height: 410px;
+    background: #FFFFFF;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(255, 255, 255, 0.25);
+}
+.article-content-header {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    color: #283290;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    margin-bottom: 16px;
+}
+    
+.article-read {
+    width: 1100px;
+    line-height: 24px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #7B8898;
+    text-align: center;
+    margin-left: 92px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+    
+.article-content-a {
+    cursor: pointer;
+    color: #20D34A;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: medium;
+    font-weight: 500;
+    text-decoration: none;
+}
+.comments-wrapper {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 950px;
+    background: #eeeeee;
+    width: 60%;
+    margin-left: 260px;
+    height: 145px;
+}
+.comments {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #eeeeee;
+    width: 90%;
+    height: 250px;
+    overflow-y: scroll;
+}
+.comment-header {
+    margin-left: 30px;
+    padding-top: 18px;
+    margin-bottom: 18px;
+}
+.input {
+    margin-left: 75px;
+    width: 80%;
+    height: 55px;
+    border-radius: 8px;
+    border: 1px solid #9a9a9a;
+}
+.input::placeholder{
+    padding-left: 15px;
+}
+.video-tag {
+   height: 390px;
+    margin-left: 54%;
+    width: 640px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.comments {
+  padding: 5%;
+  padding-top: 2%;
+}
+.commenters-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+    margin-left: 25px;
+    margin-top: 4px;
+}
+.comment-box {
+    height: auto;
+    background-color: #f5f5f5;
+    width: 600px;
+    max-width: 600px;
+    border-radius: 5px;
+    font-weight: 100;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 25px auto;
+    box-shadow: 1px 1px #d0d4d9;
+}
+.commenters-name {
+    font-size: smaller;
+    font-weight: lighter;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    color: #aaaaaa;
+}
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 105px;
+}
+.footer1 {
+    margin-top: 2450px;
+}
+.footer2 {
+    margin-top: 2930px;
+}
