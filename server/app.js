@@ -67,6 +67,7 @@ const strategy = new Auth0Strategy(
         domain: process.env.DOMAIN,
     },
     function (accessToken, refreshToken, extraParams, profile, done) {
+        console.log(profile);
         return done(null, profile);
     }
 );
@@ -100,16 +101,25 @@ app.prepare().then(() => {
         res.redirect('/');
     });
 
-    server.get('/callback', function (req, res, nextVal) {
-        passport.authenticate('auth0', function (err, user) {
-            if (err) { return nextVal(err); }
-            if (!user) { return res.redirect('/login'); }
-            req.logIn(user, function (error) {
-                if (error) { return nextVal(err); }
-                return res.redirect('/user');
-            });
-        })(req, res, nextVal);
-    });
+    server.get('/callback',
+        passport.authenticate('auth0', { failureRedirect: '/login' }), function (req, res) {
+            if (!req.user) {
+                throw new Error('user null');
+            }
+            res.redirect('/user');
+        });
+
+    // server.get('/callback', function (req, res, nextVal) {
+    //     passport.authenticate('auth0', function (err, user) {
+    //         console.log(user);
+    //         if (err) { return nextVal(err); }
+    //         if (!user) { return res.redirect('/login'); }
+    //         req.logIn(user, function (error) {
+    //             if (error) { return nextVal(err); }
+    //             return res.redirect('/user');
+    //         });
+    //     })(req, res, nextVal);
+    // });
 
     server.get('/api/user', secured(), function (req, res) {
         const { ...userProfile } = req.user;

@@ -5,7 +5,7 @@ import {
     CssBaseline, Grid, Paper,
     Typography, TextField, Button, Link
 } from '@material-ui/core';
-import { TEXT_FIELD } from '../constants';
+// import { TEXT_FIELD } from '../constants';
 import './register.scss';
 
 const RegisterPage = () => {
@@ -13,8 +13,23 @@ const RegisterPage = () => {
     const [userFirstName, setFirstName] = useState('');
     const [userLastName, setLastName] = useState('');
     const [userPassword, setPassword] = useState('');
-    const [userPhonerNumber, setphoneNumber] = useState('');
+    const [userPhonerNumber, setPhoneNumber] = useState('');
     const [message, setMessage] = useState('');
+
+    const getStateFunction = (e, field) => {
+        // const { value } = e.target.value;
+        if (field.name === 'email') {
+            setEmail(e.target.value);
+        } else if (field.name === 'first_name') {
+            setFirstName(e.target.value);
+        } else if (field.name === 'last_name') {
+            setLastName();
+        } else if (field.name === 'password') {
+            setPassword();
+        } else if (field.name === 'phone_number') {
+            setPhoneNumber();
+        }
+    };
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -34,7 +49,7 @@ const RegisterPage = () => {
                     setFirstName('');
                     setLastName('');
                     setPassword('');
-                    setphoneNumber('');
+                    setPhoneNumber('');
                 })
                 .catch(error => {
                     setMessage(error);
@@ -64,31 +79,73 @@ const RegisterPage = () => {
                                 <Grid item>
                                     <h4>
                                         {message
-                                            ? 'Your Registration was Successfuls. You can Login '
+                                            ? 'Your Registration was Successful. You can Login '
                                             : ''}
                                     </h4>
                                 </Grid>
                             </Grid>
-                            {
-                                TEXT_FIELD.map(({
-                                    label, name, id, type, autoFocus, value, handler,
-                                }) => (
-                                    <TextField
-                                      key={id}
-                                      variant="outlined"
-                                      margin="normal"
-                                      required
-                                      fullWidth
-                                      label={label}
-                                      name={name}
-                                      type={type}
-                                      autoFocus={autoFocus}
-                                      value={value}
-                                      onChange={handler}
-                                      /* i used {e => {handler}(e.target.value)} but show error */
-                                    />
-                                ))
-                            }
+                            <TextField
+                              variant="outlined"
+                              margin="normal"
+                              required
+                              fullWidth
+                              id="email"
+                              label="Email Address"
+                              name="email"
+                              autoComplete="email"
+                              autoFocus
+                              value={userEmail}
+                              onChange={e => setEmail(e.target.value)}
+                            />
+                            <TextField
+                              variant="outlined"
+                              margin="normal"
+                              required
+                              fullWidth
+                              id="first_name"
+                              label="First Name"
+                              name="text"
+                              autoComplete="text"
+                              value={userFirstName}
+                              onChange={e => setFirstName(e.target.value)}
+                            />
+                            <TextField
+                              variant="outlined"
+                              margin="normal"
+                              required
+                              fullWidth
+                              id="last_name"
+                              label="Last Name"
+                              name="text"
+                              autoComplete="text"
+                              value={userLastName}
+                              onChange={e => setLastName(e.target.value)}
+                            />
+                            <TextField
+                              variant="outlined"
+                              margin="normal"
+                              required
+                              fullWidth
+                              name="password"
+                              label="Password"
+                              type="password"
+                              id="password"
+                              autoComplete="current-password"
+                              value={userPassword}
+                              onChange={e => setPassword(e.target.value)}
+                            />
+                            <TextField
+                              variant="outlined"
+                              margin="normal"
+                              required
+                              fullWidth
+                              id="phone_number"
+                              label="Phone Number"
+                              name="number"
+                              autoComplete="text"
+                              value={userPhonerNumber}
+                              onChange={e => setPhoneNumber(e.target.value)}
+                            />
                             <Button
                               type="submit"
                               fullWidth
