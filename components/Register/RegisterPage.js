@@ -1,4 +1,5 @@
 /* eslint indent:0 */
+/* eslint consistent-return:0 */
 import axios from 'axios';
 import React, { useState } from 'react';
 import {
@@ -16,22 +17,25 @@ const RegisterPage = () => {
     const [userPhonerNumber, setPhoneNumber] = useState('');
     const [message, setMessage] = useState('');
 
-    const getStateFunction = (e, name) => {
-        switch (name.field) {
+    const getStateFunction = (value, name) => {
+        switch (name) {
             case 'firstName':
-                setFirstName(e.target.value);
+                setFirstName(value);
                 break;
             case 'lastName':
-                setLastName(e.target.value);
+                setLastName(value);
                 break;
             case 'password':
-                setPassword(e.target.value);
+                setPassword(value);
                 break;
             case 'phoneNumber':
-                setPhoneNumber(e.target.value);
+                setPhoneNumber(value);
+                break;
+            case 'email':
+                setEmail(value);
                 break;
             default:
-                setEmail(e.target.value);
+                return null;
         }
     };
 
@@ -49,11 +53,7 @@ const RegisterPage = () => {
             axios.post('/api/v1/user', data)
                 .then(() => {
                     setMessage('Registration Successful. You can Login');
-                    setEmail('');
-                    setFirstName('');
-                    setLastName('');
-                    setPassword('');
-                    setPhoneNumber('');
+                    window.location = '/article';
                 })
                 .catch(error => {
                     setMessage(error);
@@ -90,7 +90,7 @@ const RegisterPage = () => {
                             </Grid>
                             {
                                 TEXT_FIELD.map(({
-                                    label, name, id, type, autoFocus, value,
+                                    label, name, id, type, autoFocus,
                                 }) => (
                                     <TextField
                                       key={id}
@@ -102,73 +102,10 @@ const RegisterPage = () => {
                                       name={name}
                                       type={type}
                                       autoFocus={autoFocus}
-                                      value=""
-                                      onChange={e => getStateFunction(e.target.value, { name })}
+                                      onChange={e => getStateFunction(e.target.value, name)}
                                     />
                                       ))
                             }
-                            {/* <TextField
-                              variant="outlined"
-                              margin="normal"
-                              required
-                              fullWidth
-                              id="email"
-                              label="Email Address"
-                              name="email"
-                              autoComplete="email"
-                              autoFocus
-                              value={userEmail}
-                              onChange={e => setEmail(e.target.value)}
-                            />
-                            <TextField
-                              variant="outlined"
-                              margin="normal"
-                              required
-                              fullWidth
-                              id="first_name"
-                              label="First Name"
-                              name="text"
-                              autoComplete="text"
-                              value={userFirstName}
-                              onChange={e => setFirstName(e.target.value)}
-                            />
-                            <TextField
-                              variant="outlined"
-                              margin="normal"
-                              required
-                              fullWidth
-                              id="last_name"
-                              label="Last Name"
-                              name="text"
-                              autoComplete="text"
-                              value={userLastName}
-                              onChange={e => setLastName(e.target.value)}
-                            />
-                            <TextField
-                              variant="outlined"
-                              margin="normal"
-                              required
-                              fullWidth
-                              name="password"
-                              label="Password"
-                              type="password"
-                              id="password"
-                              autoComplete="current-password"
-                              value={userPassword}
-                              onChange={e => setPassword(e.target.value)}
-                            />
-                            <TextField
-                              variant="outlined"
-                              margin="normal"
-                              required
-                              fullWidth
-                              id="phone_number"
-                              label="Phone Number"
-                              name="number"
-                              autoComplete="text"
-                              value={userPhonerNumber}
-                              onChange={e => setPhoneNumber(e.target.value)}
-                            /> */}
                             <Button
                               type="submit"
                               fullWidth

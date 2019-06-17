@@ -139,7 +139,6 @@ export const TEXT_FIELD = [
         label: 'Email Address',
         name: 'email',
         type: 'email',
-        value: 'userEmail',
     },
 
     {
@@ -150,7 +149,6 @@ export const TEXT_FIELD = [
         label: 'First Name',
         name: 'firstName',
         type: 'text',
-        value: 'userFirstName',
     },
 
     {
@@ -161,7 +159,6 @@ export const TEXT_FIELD = [
         label: 'Last Name',
         name: 'lastName',
         type: 'text',
-        value: 'userLastName',
     },
 
     {
@@ -172,7 +169,6 @@ export const TEXT_FIELD = [
         label: 'Password',
         name: 'password',
         type: 'password',
-        value: 'userPassword',
     },
 
     {
@@ -183,6 +179,5 @@ export const TEXT_FIELD = [
         label: 'Phone Number',
         name: 'phoneNumber',
         type: 'number',
-        value: 'userPhoneNumber',
     },
 ];
