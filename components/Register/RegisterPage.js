@@ -5,7 +5,7 @@ import {
     CssBaseline, Grid, Paper,
     Typography, TextField, Button, Link
 } from '@material-ui/core';
-// import { TEXT_FIELD } from '../constants';
+import { TEXT_FIELD } from '../constants';
 import './register.scss';
 
 const RegisterPage = () => {
@@ -16,18 +16,22 @@ const RegisterPage = () => {
     const [userPhonerNumber, setPhoneNumber] = useState('');
     const [message, setMessage] = useState('');
 
-    const getStateFunction = (e, field) => {
-        // const { value } = e.target.value;
-        if (field.name === 'email') {
-            setEmail(e.target.value);
-        } else if (field.name === 'first_name') {
-            setFirstName(e.target.value);
-        } else if (field.name === 'last_name') {
-            setLastName();
-        } else if (field.name === 'password') {
-            setPassword();
-        } else if (field.name === 'phone_number') {
-            setPhoneNumber();
+    const getStateFunction = (e, name) => {
+        switch (name.field) {
+            case 'firstName':
+                setFirstName(e.target.value);
+                break;
+            case 'lastName':
+                setLastName(e.target.value);
+                break;
+            case 'password':
+                setPassword(e.target.value);
+                break;
+            case 'phoneNumber':
+                setPhoneNumber(e.target.value);
+                break;
+            default:
+                setEmail(e.target.value);
         }
     };
 
@@ -84,7 +88,26 @@ const RegisterPage = () => {
                                     </h4>
                                 </Grid>
                             </Grid>
-                            <TextField
+                            {
+                                TEXT_FIELD.map(({
+                                    label, name, id, type, autoFocus, value,
+                                }) => (
+                                    <TextField
+                                      key={id}
+                                      variant="outlined"
+                                      margin="normal"
+                                      required
+                                      fullWidth
+                                      label={label}
+                                      name={name}
+                                      type={type}
+                                      autoFocus={autoFocus}
+                                      value=""
+                                      onChange={e => getStateFunction(e.target.value, { name })}
+                                    />
+                                      ))
+                            }
+                            {/* <TextField
                               variant="outlined"
                               margin="normal"
                               required
@@ -145,7 +168,7 @@ const RegisterPage = () => {
                               autoComplete="text"
                               value={userPhonerNumber}
                               onChange={e => setPhoneNumber(e.target.value)}
-                            />
+                            /> */}
                             <Button
                               type="submit"
                               fullWidth
