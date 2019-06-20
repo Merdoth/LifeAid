@@ -93,7 +93,7 @@ const Home = () => (
                             </span>
                         </div>
                         <div className="services-content">
-                            <img className="serviceI" src="/static/img/care.jpg" alt="Smiley face" />
+                            <img className="service-img" src="/static/img/care.jpg" alt="Smiley face" />
                             <span className="services-content-text">
                                 <p className="service-text1">
                                     Opportunity To Ask Doctors

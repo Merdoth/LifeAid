@@ -1,0 +1,153 @@
+.app-content {
+    position: absolute;
+    width: 100%;
+}
+.app-content > hr {
+    border: 0px;
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    margin-left: 53px;
+    margin-top: 55px;
+    background: #20D34A;
+}
+.articles > p {
+    color: #283290;
+    font-size: 38px;
+}
+.articles {
+    background: #FBFCFE;
+    margin-top: 360px;
+    height: 1860px;
+}
+.app-content > p {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 80px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.article-content {
+    width: 580px;
+    height: 410px;
+    background: #FFFFFF;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(255, 255, 255, 0.25);
+}
+.article-content-header {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    color: #283290;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    margin-bottom: 16px;
+}
+    
+.article-read {
+    width: 520px;
+    line-height: 24px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #7B8898;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+    
+.article-content-a {
+    cursor: pointer;
+    color: #20D34A;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: medium;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 105px;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 996.43px;  
+}
+.header-cover {
+    position: absolute;
+    margin-top: 100px;
+    width: 100%;
+    background-size: contain;       
+    background-repeat:  no-repeat;
+    background-position: center center; 
+    height: 330px;
+    background: url("/static/img/videoman.png");
+    box-shadow:inset 0 0 0 2000px rgba(39, 39, 245, 0.4);
+}
+.text1 {
+    margin-top: 105px;
+    margin-left: 224px;
+    color: #ffffff;
+    font-size: 24px;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+.pagination {
+    margin-top: 90px !important;
+    font-size: 20px !important;
+    cursor: pointer;
+    margin-left: 590px;
+}
+
+.pagination:hover {
+    color: #20D34A;
+}
+.footer1 {
+    margin-top: 2210px;
+}
+.footer2 {
+    margin-top: 2690px;
+}
+
+.input-container {
+    margin: 25px auto;
+    max-width: 416px;
+    background-color: #EDEDED;
+    border: 1px solid #DFDFDF;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+.file-info {
+    font-size: 0.9em;
+    margin-left: 16px;
+}
+.browse-btn {
+    background: #03A595;
+    color: #fff;
+    min-height: 35px;
+    padding: 10px;
+    margin: auto;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+.browse-btn:hover {
+    background: #20D34A;
+}
+
+input[type="file" i] {
+    padding: 10px;
+}
