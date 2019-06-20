@@ -106,7 +106,7 @@ app.prepare().then(() => {
             if (!user) { return res.redirect('/login'); }
             req.logIn(user, function (error) {
                 if (error) { return nextVal(err); }
-                return res.redirect('/user');
+                return res.redirect('/article');
             });
         })(req, res, nextVal);
     });
