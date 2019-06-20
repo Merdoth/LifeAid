@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@material-ui/core": "^3.9.3",
+    "@material-ui/core": "^4.0.0-rc.0",
     "@types/react": "^16.8.17",
     "@zeit/next-sass": "^1.0.1",
     "antd": "^3.19.6",
@@ -69,6 +69,7 @@
     "express-validator": "^5.3.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "fs": "^0.0.1-security",
+    "glob": "^7.1.4",
     "history": "^4.9.0",
     "html-webpack-exclude-assets-plugin": "0.0.7",
     "html-webpack-plugin": "^3.2.0",

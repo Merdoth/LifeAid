@@ -1,0 +1,22 @@
+.form {
+    margin-top: 100px;
+    width: 100%; // Fix IE 11 issue.
+}
+.image {
+    background: url("/static/img/about.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.paper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.root {
+    height: 100vh;
+}
+.submit {
+    margin: 20px;
+}
