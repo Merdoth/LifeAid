@@ -129,7 +129,59 @@ export const NAV_LINK = [
     },
     {
         id: 5,
-        link: '/login',
-        text: 'Login',
+        link: '/register',
+        text: 'Register',
+    },
+];
+
+export const TEXT_FIELD = [
+    {
+        autoComplete: 'email',
+        autoFocus: true,
+        handler: 'setEmail',
+        id: 1,
+        label: 'Email Address',
+        name: 'email',
+        type: 'email',
+    },
+
+    {
+        autoComplete: 'text',
+        autoFocus: false,
+        handler: 'setFirstName',
+        id: 2,
+        label: 'First Name',
+        name: 'firstName',
+        type: 'text',
+    },
+
+    {
+        autoComplete: 'text',
+        autoFocus: false,
+        handler: 'setLastName',
+        id: 3,
+        label: 'Last Name',
+        name: 'lastName',
+        type: 'text',
+    },
+
+    {
+        autoComplete: 'text',
+        autoFocus: false,
+        handler: 'setPassword',
+        id: 4,
+        label: 'Password',
+        name: 'password',
+        type: 'password',
+    },
+
+    {
+        autoComplete: 'text',
+        autoFocus: false,
+        handler: 'setphoneNumber',
+        id: 5,
+        label: 'Phone Number',
+        name: 'phoneNumber',
+        type: 'number',
     },
 ];
