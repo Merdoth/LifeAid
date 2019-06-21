@@ -21,6 +21,8 @@ const {
     CONSULT_TEXT2,
     ARTICLE_HEADER1,
     ARTICLE_HEADER2,
+    HELP_DESK,
+    SERVICES,
 } = HOME_STRINGS;
 
 const Home = () => (
@@ -62,46 +64,46 @@ const Home = () => (
                         </p>
                     </div>
                 </div>
-            </div>
-            <div className="services app-content">
-                <hr />
-                <p>Our Featured Services</p>
-                <div className="content-wrapper services-wrapper">
-                    <div className="services-content">
-                        <img className="service-img" src="/static/img/help.jpg" alt="Smiley face" />
-                        <span className="services-content-text">
-                            <p className="service-text1">
+                <div className="services app-content">
+                    <hr />
+                    <p>{SERVICES}</p>
+                    <div className="content-wrapper services-wrapper">
+                        <div className="services-content">
+                            <img className="service-img" src="/static/img/help.jpg" alt="Smiley face" />
+                            <span className="services-content-text">
+                                <p className="service-text1">
                                     Emergency Contact
-                                <br />
-                                {' '}
+                                    <br />
+                                    {' '}
                                     Number
-                            </p>
-                            <p className="service-text2">Help Desk</p>
-                        </span>
-                    </div>
-                    <div className="services-content">
-                        <img className="service-img" src="/static/img/cardiac.jpg" alt="Smiley face" />
-                        <span className="services-content-text">
-                            <p className="service-text1">
+                                </p>
+                                <p className="service-text2">{HELP_DESK}</p>
+                            </span>
+                        </div>
+                        <div className="services-content">
+                            <img className="service-img" src="/static/img/cardiac.jpg" alt="Smiley face" />
+                            <span className="services-content-text">
+                                <p className="service-text1">
                                     Instructions On How To
-                                <br />
-                                {' '}
+                                    <br />
+                                    {' '}
                                     Administer First Aid
-                            </p>
-                            <p className="service-text2">Help Desk</p>
-                        </span>
-                    </div>
-                    <div className="services-content">
-                        <img className="service-img" src="/static/img/care.jpg" alt="Smiley face" />
-                        <span className="services-content-text">
-                            <p className="service-text1">
+                                </p>
+                                <p className="service-text2">{HELP_DESK}</p>
+                            </span>
+                        </div>
+                        <div className="services-content">
+                            <img className="service-img" src="/static/img/care.jpg" alt="Smiley face" />
+                            <span className="services-content-text">
+                                <p className="service-text1">
                                     Opportunity To Ask Doctors
-                                <br />
-                                {' '}
+                                    <br />
+                                    {' '}
                                     Questions
-                            </p>
-                            <p className="service-text2">Help Desk</p>
-                        </span>
+                                </p>
+                                <p className="service-text2">{HELP_DESK}</p>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

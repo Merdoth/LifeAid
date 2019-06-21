@@ -23,6 +23,8 @@ export const HOME_STRINGS = {
     'elit. Curabitur ante leo, finibus quis est ut, tempor',
     FOOTER1_TEXTC:
     'tincidunt ipsum.',
+    HELP_DESK:
+    'Help Desk',
     INTEGRITY:
     'sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay',
     INTRO_HEADER:
@@ -35,6 +37,8 @@ export const HOME_STRINGS = {
     'office@lifeaid.com',
     READ_MORE:
     'Read more',
+    SERVICES:
+    'Our Featured Services',
 };
 
 export const ICONS = [
