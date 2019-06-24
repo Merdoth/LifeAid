@@ -4,9 +4,9 @@
   "description": "Template for starting a project",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/server/app.js",
+    "dev_server": "node dist/server/app.js",
     "build": "next build",
-    "dev_client": "next",
+    "start": "next",
     "dev": "nodemon --watch server --exec babel-node -- ./server/app.js",
     "lint": "eslint --ext .js --ext .jsx . --fix",
     "heroku-postbuild": "npm run build"
