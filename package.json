@@ -4,9 +4,9 @@
   "description": "Template for starting a project",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/server/app.js",
-    "dev_client": "next",
-    "dev": "nodemon --watch server --exec babel-node -- ./server/app.js",
+    "build": "next build",
+    "dev": "next",
+    "start": "next start",
     "lint": "eslint --ext .js --ext .jsx . --fix"
   },
   "repository": {
