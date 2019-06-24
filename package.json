@@ -10,7 +10,7 @@
     "dev": "nodemon --watch server --exec babel-node -- ./server/app.js",
     "lint": "eslint --ext .js --ext .jsx . --fix",
     "heroku-postbuild": "npm run build",
-    "build:copy": "NODE_ENV=production babel ./ -d dist --copy-files  --ignore node_modules/,dist",
+    "build:copy": "NODE_ENV=production babel ./ -d dist  --ignore node_modules/,dist",
     "build": "npm run build:copy && npm run build:client"
 
 
