@@ -5,15 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/server/app.js",
-    "build:client": "next build",
+    "build": "next build",
     "dev_client": "next",
     "dev": "nodemon --watch server --exec babel-node -- ./server/app.js",
     "lint": "eslint --ext .js --ext .jsx . --fix",
-    "heroku-postbuild": "npm run build",
-    "build:copy": "NODE_ENV=production babel ./ -d dist  --ignore node_modules/,dist",
-    "build": "npm run build:copy && npm run build:client"
-
-
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
