@@ -19,8 +19,6 @@ const Aids = {
             });
         }
 
-        console.log(req.file);
-
         const { public_id: imageId, url: imageUrl } = await req.file;
         const queryText = { ...req.body, imageId, imageUrl };
 

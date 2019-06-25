@@ -1,18 +1,25 @@
 /* eslint indent:0 */
+/* eslint arrow-parens:0 */
 /* eslint consistent-return:0 */
+/* eslint arrow-body-style:0 */
 /* eslint react/destructuring-assignment:0 */
+/* eslint object-shorthand:0 */
+/* eslint react/no-access-state-in-setstate:0 */
+/* eslint prefer-template:0 */
+/* eslint no-console:0 */
 import axios from 'axios';
 import React from 'react';
 import {
-    CssBaseline, Grid, Paper,
-    Typography, TextField, Button
+    CssBaseline, Grid, Paper, Typography, TextField, Button
 } from '@material-ui/core';
 import './dashboard.scss';
+import ArticleLists from './ArticleLists';
 
 class DashboardPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            articles: [],
             description: '',
             image: '',
             intro: '',
@@ -22,20 +29,47 @@ class DashboardPage extends React.Component {
         };
     }
 
+    componentDidMount() {
+        axios.get('/api/v1/aids')
+            .then(res => {
+                this.setState((prevState) => {
+                    return { articles: prevState.articles.concat(res.data.data.aids) };
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    deleteArticle = (key) => {
+        if (key) {
+            axios.delete('/api/v1/aids/' + key)
+                .then(() => {
+                    window.location = '/dashboard';
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+    }
+
     handlePublish = e => {
         e.preventDefault();
-        if (this.state.title !== '' && this.state.description !== ''
-        && this.state.intro !== '') {
+        const {
+            description, image, intro, title, video,
+        } = this.state;
+        if (title !== '' && description !== '' && intro !== '' && video !== '' && image !== '') {
             const data = {
-                description: this.state.description,
-                image: this.state.image,
-                intro: this.state.intro,
-                title: this.state.title,
-                video: this.state.video,
+                description: description,
+                image: image,
+                intro: intro,
+                title: title,
+                video: video,
             };
             console.log(data);
             axios.post('/api/v1/aid', data)
-                .then(() => {
+                .then(res => {
+                    this.setState({ outputMessage: res.message });
                     window.location = '/dashboard';
                 })
                 .catch(error => {
@@ -49,6 +83,9 @@ class DashboardPage extends React.Component {
     }
 
     render() {
+        const {
+            articles, description, image, intro, title, video, outputMessage,
+        } = this.state;
         return (
             <div>
                 <Grid container component="main" className="root">
@@ -59,7 +96,7 @@ class DashboardPage extends React.Component {
                             <Typography component="h1" variant="h5">
                                 Sign in
                             </Typography>
-                            <form className="form" noValidate>
+                            <form name="form" className="form" noValidate>
                                 <Grid container>
                                     <Grid item>
                                         <h2>
@@ -70,7 +107,7 @@ class DashboardPage extends React.Component {
                                 <Grid container>
                                     <Grid item>
                                         <h4>
-                                            {this.state.outputMessage
+                                            {outputMessage
                                                 ? 'You have Successful Published the Article.'
                                                 : ''}
                                         </h4>
@@ -86,7 +123,7 @@ class DashboardPage extends React.Component {
                                   name="title"
                                   autoComplete="text"
                                   type="text"
-                                  value={this.state.title}
+                                  value={title}
                                   onChange={e => this.handleOnChange(e)}
                                 />
                                 <TextField
@@ -100,7 +137,7 @@ class DashboardPage extends React.Component {
                                   margin="normal"
                                   variant="outlined"
                                   type="text"
-                                  value={this.state.intro}
+                                  value={intro}
                                   onChange={e => this.handleOnChange(e)}
                                 />
                                 <TextField
@@ -114,7 +151,7 @@ class DashboardPage extends React.Component {
                                   margin="normal"
                                   variant="outlined"
                                   type="text"
-                                  value={this.state.description}
+                                  value={description}
                                   onChange={e => this.handleOnChange(e)}
                                 />
                                 <TextField
@@ -124,10 +161,10 @@ class DashboardPage extends React.Component {
                                   fullWidth
                                   id="url"
                                   label="Video URL"
-                                  name="videoUrl"
+                                  name="video"
                                   autoComplete="text"
                                   type="url"
-                                  value={this.state.video}
+                                  value={video}
                                   onChange={e => this.handleOnChange(e)}
                                 />
                                 <TextField
@@ -138,11 +175,9 @@ class DashboardPage extends React.Component {
                                   id="image"
                                   label="Image"
                                   name="image"
-                                  autoComplete="text"
                                   type="file"
-                                  accept="/image*"
                                   autoFocus
-                                  value={this.state.image}
+                                  value={image}
                                   onChange={e => this.handleOnChange(e)}
                                 />
                                 <Button
@@ -158,6 +193,7 @@ class DashboardPage extends React.Component {
                             </form>
                         </div>
                     </Grid>
+                    <ArticleLists articles={articles} delete={this.deleteArticle} />
                 </Grid>
             </div>
         );
