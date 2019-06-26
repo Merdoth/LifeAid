@@ -59,15 +59,18 @@ class DashboardPage extends React.Component {
             description, image, intro, title, video,
         } = this.state;
         if (title !== '' && description !== '' && intro !== '' && video !== '' && image !== '') {
-            const data = {
-                description: description,
-                image: image,
-                intro: intro,
-                title: title,
-                video: video,
+            const bodyFormData = new FormData();
+            // bodyFormData.set('description', description);
+            bodyFormData.append('image', image);
+            // bodyFormData.set('intro', intro);
+            // bodyFormData.set('title', title);
+            // bodyFormData.set('video', video);
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data',
+                },
             };
-            console.log(data);
-            axios.post('/api/v1/aid', data)
+            axios.post('/api/v1/aid', bodyFormData, config)
                 .then(res => {
                     this.setState({ outputMessage: res.message });
                     window.location = '/dashboard';
@@ -193,6 +196,7 @@ class DashboardPage extends React.Component {
                             </form>
                         </div>
                     </Grid>
+                    <br />
                     <ArticleLists articles={articles} delete={this.deleteArticle} />
                 </Grid>
             </div>
