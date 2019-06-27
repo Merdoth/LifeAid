@@ -10,7 +10,8 @@
     "dev_client": "next",
     "dev": "nodemon --watch server --exec babel-node -- ./server/app.js",
     "lint": "eslint --ext .js --ext .jsx . --fix",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "now-build": "next build"
   },
   "repository": {
     "type": "git",
