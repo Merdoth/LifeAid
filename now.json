@@ -1,30 +1,5 @@
 {
     "version": 2,
-    "builds": [{ "src": "package.json", "use": "@now/next" }],
-    "env": {
-        "PORT": 8080,
-        "MONGODB_DEV_URL": "mongodb://Lifeaid:lifeaid1234@ds241025.mlab.com:41025/lifeaid",
-        "MONGODB_TEST_URL": "mongodb://Lifeaid:lifeaid1234@ds241025.mlab.com:41025/lifeaid",
-        "CLOUD_NAME": "dwozj7hoc",
-        "API_KEY": 283387558572451,
-        "API_SECRET": "XWpS_yichSNuyS0mwmVnRBObsJE",
-        "HOST": "smtp.gmail.com",
-        "MAIL_PORT": 587,
-        "USER": "lifeaidd@gmail.com",
-        "PASS": "diaefil1234",
-        "SMS_API_KEY" : "1d330b60",
-        "SMS_API_SECRET" : "rE7op7eQNUMySR4M",
-        "MAP_API_KEY" : "AIzaSyDsJ1cKmRnG4srbL4m8r2K9za3mAS8rjbI",
-        "DOMAIN" : "iammiracle.auth0.com",
-        "AUDIENCE" : "https://iammiracle.auth0.com/userinfo",
-        "CLIENT_ID" : "I0Qpgj1efZdvUtV5nwRJyx14VJl2S2Qb",
-        "CLIENT_SECRET" : "sgfoU_ZfjE_V_kWbuSH4YBxcwxjpIz2yR29KvZ_-q2kObb6lYupoRgo0NE74wza7",
-        "ACCOUNTS_ID" : "AC3e9784f1c6e15106242356b6053446fb",
-        "AUTH_TOKEN" : "7c670752815a2d9e4073109bd517addd",
-        "TWILIO_NUMBER" : "+13109127911",
-        "callbackURL" : "http://localhost:8080/callback"
-
-    }
-    
+    "builds": [{ "src": "package.json", "use": "@now/next" }]    
   }
   
