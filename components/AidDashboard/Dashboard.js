@@ -21,7 +21,6 @@ class DashboardPage extends React.Component {
         this.state = {
             articles: [],
             description: '',
-            image: '',
             intro: '',
             outputMessage: '',
             title: '',
@@ -56,21 +55,17 @@ class DashboardPage extends React.Component {
     handlePublish = e => {
         e.preventDefault();
         const {
-            description, image, intro, title, video,
+            description, intro, title, video,
         } = this.state;
-        if (title !== '' && description !== '' && intro !== '' && video !== '' && image !== '') {
-            const bodyFormData = new FormData();
-            // bodyFormData.set('description', description);
-            bodyFormData.append('image', image);
-            // bodyFormData.set('intro', intro);
-            // bodyFormData.set('title', title);
-            // bodyFormData.set('video', video);
-            const config = {
-                headers: {
-                    'content-type': 'multipart/form-data',
-                },
+        if (title !== '' && description !== '' && intro !== '' && video !== '') {
+            const bodyFormData = {
+                description: description,
+                intro: intro,
+                title: title,
+                video: video,
             };
-            axios.post('/api/v1/aid', bodyFormData, config)
+
+            axios.post('/api/v1/aid', bodyFormData)
                 .then(res => {
                     this.setState({ outputMessage: res.message });
                     window.location = '/dashboard';
@@ -87,7 +82,7 @@ class DashboardPage extends React.Component {
 
     render() {
         const {
-            articles, description, image, intro, title, video, outputMessage,
+            articles, description, intro, title, video, outputMessage,
         } = this.state;
         return (
             <div>
@@ -168,19 +163,6 @@ class DashboardPage extends React.Component {
                                   autoComplete="text"
                                   type="url"
                                   value={video}
-                                  onChange={e => this.handleOnChange(e)}
-                                />
-                                <TextField
-                                  variant="outlined"
-                                  margin="normal"
-                                  required
-                                  fullWidth
-                                  id="image"
-                                  label="Image"
-                                  name="image"
-                                  type="file"
-                                  autoFocus
-                                  value={image}
                                   onChange={e => this.handleOnChange(e)}
                                 />
                                 <Button

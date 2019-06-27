@@ -31,11 +31,11 @@ const aidSchema = new Schema(
             type: String,
         },
         imageId: {
-            required: true,
+            required: false,
             type: String,
         },
         imageUrl: {
-            required: true,
+            required: false,
             type: String,
         },
         intro: {
