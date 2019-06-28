@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable class-methods-use-this */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-indent-props */
 import React, { Component } from 'react';
@@ -30,6 +32,7 @@ class ArticleContent extends Component {
             comment: '',
         });
     }
+
     _onReady(event) {
         // access to player in all event handlers via event.target
         event.target.pauseVideo();
@@ -49,13 +52,13 @@ class ArticleContent extends Component {
         const {
             GOOGLE_FONTS,
         } = SERVICE_STRING;
-        
+
         const opts = {
             height: '390',
-            width: '640',
             playerVars: {
-              autoplay: 1
-            }
+                autoplay: 1,
+            },
+            width: '640',
         };
         return (
             <React.Fragment>
@@ -78,15 +81,15 @@ class ArticleContent extends Component {
                     <hr />
                     <div className="article-content article1">
                         <p className="article-read">{ARTICLE_CONTENT_READ1}</p>
-                        <br/>
+                        <br />
                         <div className="video-tag">
-                        <YouTube
-                            videoId="zMfKzfPteRM"
-                            opts={opts}
-                            onReady={this._onReady}
-                        />
+                            <YouTube
+                                videoId="zMfKzfPteRM"
+                                opts={opts}
+                                onReady={this._onReady}
+                            />
                         </div>
-                        <br/>
+                        <br />
                         <p className="article-read">{ARTICLE_CONTENT_READ2}</p>
                     </div>
                     <div className="comments-wrapper">
