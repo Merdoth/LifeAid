@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import 'antd/dist/antd.css';
 import { Pagination } from 'antd';
 import NavigationBar from '../Common/NavigationBar';
@@ -49,20 +51,24 @@ const ArticlePage = () => (
                     <p className="article-content-header">Why First Aid?</p>
                     <p className="article-read">
                         {ARTICLE_READ}
-                        <a className="article-content-a" href="/articlePage">
-                            {READ_MORE}
+                        <Link href="/articlePage">
+                            <a className="article-content-a">
+                                {READ_MORE}
                                 ...
-                        </a>
+                            </a>
+                        </Link>
                     </p>
                 </div>
                 <div className="article-content">
                     <p className="article-content-header">What Should be in a First Aid kit?</p>
                     <p className="article-read">
                         {ARTICLE_READ}
-                        <a className="article-content-a" href="/articlePage">
-                            {READ_MORE}
+                        <Link href="/articlePage">
+                            <a className="article-content-a">
+                                {READ_MORE}
                                 ...
-                        </a>
+                            </a>
+                        </Link>
                     </p>
                 </div>
             </div>
@@ -71,20 +77,24 @@ const ArticlePage = () => (
                     <p className="article-content-header">Why First Aid?</p>
                     <p className="article-read">
                         {ARTICLE_READ}
-                        <a className="article-content-a" href="/articlePage">
-                            {READ_MORE}
+                        <Link href="/articlePage">
+                            <a className="article-content-a">
+                                {READ_MORE}
                                 ...
-                        </a>
+                            </a>
+                        </Link>
                     </p>
                 </div>
                 <div className="article-content">
                     <p className="article-content-header">What Should be in a First Aid kit?</p>
                     <p className="article-read">
                         {ARTICLE_READ}
-                        <a className="article-content-a" href="/articlePage">
-                            {READ_MORE}
+                        <Link href="/articlePage">
+                            <a className="article-content-a">
+                                {READ_MORE}
                                 ...
-                        </a>
+                            </a>
+                        </Link>
                     </p>
                 </div>
             </div>
@@ -93,20 +103,24 @@ const ArticlePage = () => (
                     <p className="article-content-header">Why First Aid?</p>
                     <p className="article-read">
                         {ARTICLE_READ}
-                        <a className="article-content-a" href="/articlePage">
-                            {READ_MORE}
+                        <Link href="/articlePage">
+                            <a className="article-content-a">
+                                {READ_MORE}
                                 ...
-                        </a>
+                            </a>
+                        </Link>
                     </p>
                 </div>
                 <div className="article-content">
                     <p className="article-content-header">What Should be in a First Aid kit?</p>
                     <p className="article-read">
                         {ARTICLE_READ}
-                        <a className="article-content-a" href="/articlePage">
-                            {READ_MORE}
+                        <Link href="/articlePage">
+                            <a className="article-content-a">
+                                {READ_MORE}
                                 ...
-                        </a>
+                            </a>
+                        </Link>
                     </p>
                 </div>
             </div>
