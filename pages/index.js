@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import Link from 'next/link';
 import NavigationBar from '../components/Common/NavigationBar';
 import Footer from '../components/Common/Footer';
 import '../scss/home.scss';
@@ -50,60 +51,57 @@ const Home = () => (
                         <p className="article-content-header">{ARTICLE_HEADER2}</p>
                         <p className="article-read">
                             {ARTICLE_READ}
-                            <a className="article-content-a"> Read more...</a>
+                            <Link href="/article"><a className="article-content-a"> Read more...</a></Link>
                         </p>
                     </div>
                     <div className="article-content">
                         <p className="article-content-header">{ARTICLE_HEADER1}</p>
                         <p className="article-read">
                             {ARTICLE_READ}
-                            <a className="article-content-a">
-                                {READ_MORE}
-                                    ...
-                            </a>
+                            <Link href="/article"><a className="article-content-a"> Read more...</a></Link>
                         </p>
                     </div>
                 </div>
-                <div className="services app-content">
-                    <hr />
-                    <p>{SERVICES}</p>
-                    <div className="content-wrapper services-wrapper">
-                        <div className="services-content">
-                            <img className="service-img" src="/static/img/help.jpg" alt="Smiley face" />
-                            <span className="services-content-text">
-                                <p className="service-text1">
+            </div>
+            <div className="services app-content">
+                <hr />
+                <p>{SERVICES}</p>
+                <div className="content-wrapper services-wrapper">
+                    <div className="services-content">
+                        <img className="service-img" src="/static/img/help.jpg" alt="Smiley face" />
+                        <span className="services-content-text">
+                            <p className="service-text1">
                                     Emergency Contact
-                                    <br />
-                                    {' '}
+                                <br />
+                                {' '}
                                     Number
-                                </p>
-                                <p className="service-text2">{HELP_DESK}</p>
-                            </span>
-                        </div>
-                        <div className="services-content">
-                            <img className="service-img" src="/static/img/cardiac.jpg" alt="Smiley face" />
-                            <span className="services-content-text">
-                                <p className="service-text1">
+                            </p>
+                            <p className="service-text2">{HELP_DESK}</p>
+                        </span>
+                    </div>
+                    <div className="services-content">
+                        <img className="service-img" src="/static/img/cardiac.jpg" alt="Smiley face" />
+                        <span className="services-content-text">
+                            <p className="service-text1">
                                     Instructions On How To
-                                    <br />
-                                    {' '}
+                                <br />
+                                {' '}
                                     Administer First Aid
-                                </p>
-                                <p className="service-text2">{HELP_DESK}</p>
-                            </span>
-                        </div>
-                        <div className="services-content">
-                            <img className="service-img" src="/static/img/care.jpg" alt="Smiley face" />
-                            <span className="services-content-text">
-                                <p className="service-text1">
+                            </p>
+                            <p className="service-text2">{HELP_DESK}</p>
+                        </span>
+                    </div>
+                    <div className="services-content">
+                        <img className="service-img" src="/static/img/care.jpg" alt="Smiley face" />
+                        <span className="services-content-text">
+                            <p className="service-text1">
                                     Opportunity To Ask Doctors
-                                    <br />
-                                    {' '}
+                                <br />
+                                {' '}
                                     Questions
-                                </p>
-                                <p className="service-text2">{HELP_DESK}</p>
-                            </span>
-                        </div>
+                            </p>
+                            <p className="service-text2">{HELP_DESK}</p>
+                        </span>
                     </div>
                 </div>
             </div>

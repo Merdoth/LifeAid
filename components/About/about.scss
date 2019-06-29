@@ -78,7 +78,10 @@
     color: #283290;
     font-size: 32px;
 }
-  
+.intro > button {
+    margin-left: 0px;
+    margin-right: 65px !important;
+}
 .intro > span > p {
     font-family: Source Sans Pro;
     font-style: normal;
