@@ -35,7 +35,7 @@ const Footer = () => (
             />
         </Head>
         <div className="footer">
-            <div className="footer1 about-footer1 service-footer1 article-footer1 app-content" id="contact">
+            <div className="footer1 home-footer1 about-footer1 service-footer1 article-footer1 app-content" id="contact">
                 <img className="logo logo-footer" src="/static/img/Group 2.png" alt="Smiley face" />
                 <div className="footer1-text">
                     <p className="footer1-text1">
@@ -100,7 +100,7 @@ const Footer = () => (
                     </div>
                 </div>
             </div>
-            <div className="footer2 about-footer2 service-footer2 article-footer2 app-content">
+            <div className="footer2 home-footer2 about-footer2 service-footer2 article-footer2 app-content">
                 <div className="footer2-content">
                     <p className="copyright">
                         {COPYRIGHT}
