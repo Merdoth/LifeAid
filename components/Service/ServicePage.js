@@ -46,26 +46,26 @@ class ServicePage extends Component {
                         crossOrigin="anonymous"
                     />
                 </Head>
-                <div className="header">
+                <div className="service-header">
                     <NavigationBar />
-                    <div className="header-cover">
-                        <span className="header-cover-text">
-                            <p className="text1">
+                    <div className="service-header-cover">
+                        <span className="service-header-cover-text">
+                            <p className="service-text1">
                                 {LIFE}
                                 {' '}
                             </p>
                             {' '}
-                            <p className="text2">Services</p>
+                            <p className="service-text2">Services</p>
                         </span>
-                        <p className="desc">Home  /  Services</p>
+                        <p className="service-desc">Home  /  Services</p>
                     </div>
                 </div>
-                <div className="intro app-content">
+                <div className="service-intro service-app-content">
                     <hr />
-                    <p className="intro-header">{SERVICES}</p>
-                    <div className="intro-service-wrapper">
-                        <div className="content-wrapper services-wrapper intro-wrap">
-                            <div className="intro-content">
+                    <p className="service-intro-header">{SERVICES}</p>
+                    <div className="service-intro-service-wrapper">
+                        <div className="service-content-wrapper services-wrapper service-intro-wrap">
+                            <div className="service-intro-content">
                                 <i className="fas fa-users icons-status" />
                                 <hr />
                                 <span className="services-content-text context1">
@@ -75,7 +75,7 @@ class ServicePage extends Component {
                                     <p className="intro-text2">{INTRO_TEXT2}</p>
                                 </span>
                             </div>
-                            <div className="intro-content">
+                            <div className="service-intro-content">
                                 <i className="fas fa-phone icons-status" />
                                 <hr />
                                 <span className="services-content-text context3">
@@ -85,7 +85,7 @@ class ServicePage extends Component {
                                     <p className="intro-text2">{INTRO_TEXT2}</p>
                                 </span>
                             </div>
-                            <div className="intro-content">
+                            <div className="service-intro-content">
                                 <i className="fas fa-first-aid icons-status" />
                                 <hr />
                                 <span className="services-content-text context4">
@@ -96,8 +96,8 @@ class ServicePage extends Component {
                                 </span>
                             </div>
                         </div>
-                        <div className="content-wrapper services-wrapper intro-wrap">
-                            <div className="intro-content">
+                        <div className="service-content-wrapper services-wrapper service-intro-wrap">
+                            <div className="service-intro-content">
                                 <i className="fas fa-hospital icons-status hos" />
                                 <hr />
                                 <span className="services-content-text context2">
@@ -107,7 +107,7 @@ class ServicePage extends Component {
                                     <p className="intro-text2">{INTRO_TEXT2}</p>
                                 </span>
                             </div>
-                            <div className="intro-content">
+                            <div className="service-intro-content">
                                 <i className="fas fa-tv icons-status" />
                                 <hr />
                                 <span className="services-content-text context1">
@@ -117,7 +117,7 @@ class ServicePage extends Component {
                                     <p className="intro-text2">{INTRO_TEXT2}</p>
                                 </span>
                             </div>
-                            <div className="intro-content">
+                            <div className="service-intro-content">
                                 <i className="fas fa-ambulance icons-status" />
                                 <hr />
                                 <span className="services-content-text context1">
@@ -130,8 +130,8 @@ class ServicePage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="services app-content">
-                    <div className="content-wrapper services-wrapper service-wrap">
+                <div className="services service-app-content">
+                    <div className="service-content-wrapper services-wrapper service-wrap">
                         <div className="services-content">
                             <img className="serviceI" src="/static/img/help.jpg" alt="Smiley face" />
                             <span className="services-content-text">
@@ -170,10 +170,10 @@ class ServicePage extends Component {
                         </div>
                     </div>
                 </div>
-                <section className="consult app-content">
-                    <div className="consult-text">
-                        <p className="consult-text1">{CONSULT_TEXT1}</p>
-                        <p className="consult-text2">{CONSULT_TEXT2}</p>
+                <section className="service-consult service-app-content">
+                    <div className="service-consult-text">
+                        <p className="service-consult-text1">{CONSULT_TEXT1}</p>
+                        <p className="service-consult-text2">{CONSULT_TEXT2}</p>
                     </div>
                     <button type="button" onClick={this.handleButton}>{READ_MORE}</button>
                 </section>

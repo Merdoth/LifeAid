@@ -1,11 +1,11 @@
-.header {
+.a-content-header {
     display: flex;
     flex-direction: column;
     position: absolute;
     width: 100%;
     height: 996.43px;  
 }
-.header-cover {
+.a-content-header-cover {
     position: absolute;
     margin-top: 100px;
     width: 100%;
@@ -17,7 +17,7 @@
     box-shadow:inset 0 0 0 2000px rgba(39, 39, 245, 0.3);
 }
 
-.header-cover-text {
+.a-content-header-cover-text {
     font-style: normal;
     font-weight: 900;
     font-size: 30px;
@@ -28,18 +28,18 @@
     margin-top: 112px;
     margin-bottom: 15px;
 }
-.text1 {
+.a-content-text1 {
     color: #20D34A;
     margin-bottom: 0px;
     text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
 }
-.text2 {
+.a-content-text2 {
     color: #FFFFFF;
     margin-bottom: 0px;
     margin-left: 10px;
     text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
 }
-.desc {
+.a-content-desc {
     margin-left: 95px;
     margin-top: 5px;
     color: #FFFFFF;
@@ -48,11 +48,11 @@
     font-weight: 500;
     text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
 }
-.app-content {
+.a-content-app-content {
     position: absolute;
     width: 100%;
 }
-.app-content > hr {
+.a-content-app-content > hr {
     border: 0px;
     position: absolute;
     width: 300px;
@@ -61,16 +61,16 @@
     margin-top: -25px;
     background: #20D34A;
 }
-.articles > p {
+.a-content-articles > p {
     color: #283290;
     font-size: 38px;
 }
-.articles {
+.a-content-articles {
     background: #FFFFFF;
     margin-top: 430px;
     height: 1860px;
 }
-.app-content > p {
+.a-content-app-content > p {
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -79,7 +79,7 @@
     margin-bottom: 32px;
  }
 
-.article-content {
+.a-content-article-content {
     width: 580px;
     height: 410px;
     background: #FFFFFF;
@@ -87,7 +87,7 @@
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(255, 255, 255, 0.25);
 }
-.article-content-header {
+.a-content-article-content-header {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 500;
@@ -98,7 +98,7 @@
     margin-bottom: 16px;
 }
     
-.article-read {
+.a-content-article-read {
     width: 1100px;
     line-height: 24px;
     font-family: Source Sans Pro;
@@ -112,7 +112,7 @@
     margin-bottom: 10px;
 }
     
-.article-content-a {
+.a-content-article-content-a {
     cursor: pointer;
     color: #20D34A;
     font-family: Roboto;

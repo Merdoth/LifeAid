@@ -65,22 +65,22 @@ class ArticleContent extends Component {
                 <Head>
                     <link href={GOOGLE_FONTS} />
                 </Head>
-                <div className="header">
+                <div className="a-content-header">
                     <NavigationBar />
-                    <div className="header-cover">
-                        <span className="header-cover-text">
-                            <p className="text1">{LIFE}</p>
+                    <div className="a-content-header-cover">
+                        <span className="a-content-header-cover-text">
+                            <p className="a-content-text1">{LIFE}</p>
                             {' '}
-                            <p className="text2">Articles</p>
+                            <p className="a-content-text2">Articles</p>
                         </span>
-                        <p className="desc">Home / Articles</p>
+                        <p className="a-content-desc">Home / Articles</p>
                     </div>
                 </div>
-                <div className="articles app-content" id="articles">
+                <div className="a-content-articles a-content-app-content" id="articles">
                     <p>Why First Aid?</p>
                     <hr />
-                    <div className="article-content article1">
-                        <p className="article-read">{ARTICLE_CONTENT_READ1}</p>
+                    <div className="a-content-article-content a-content-article1">
+                        <p className="a-content-article-read">{ARTICLE_CONTENT_READ1}</p>
                         <br />
                         <div className="video-tag">
                             <YouTube

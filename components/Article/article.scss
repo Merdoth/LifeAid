@@ -1,8 +1,8 @@
-.app-content {
+.article-app-content {
     position: absolute;
     width: 100%;
 }
-.app-content > hr {
+.article-app-content > hr {
     border: 0px;
     position: absolute;
     width: 80px;
@@ -20,7 +20,7 @@
     margin-top: 360px;
     height: 1860px;
 }
-.app-content > p {
+.article-app-content > p {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 700;
@@ -72,20 +72,20 @@
     margin-left: 5px;
 }
 
-.content-wrapper {
+.article-content-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 105px;
 }
-.header {
+.article-header {
     display: flex;
     flex-direction: column;
     position: absolute;
     width: 100%;
     height: 996.43px;  
 }
-.header-cover {
+.article-header-cover {
     position: absolute;
     margin-top: 100px;
     width: 100%;
@@ -96,7 +96,7 @@
     background: url("/static/img/videoman.png");
     box-shadow:inset 0 0 0 2000px rgba(39, 39, 245, 0.4);
 }
-.text1 {
+.article-text1 {
     margin-top: 105px;
     margin-left: 224px;
     color: #ffffff;

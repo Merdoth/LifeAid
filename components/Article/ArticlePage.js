@@ -61,11 +61,11 @@ render() {
                 <link href={MATERIALIZE} />
                 <link href={MATERIALIZE_JS} />
             </Head>
-            <div className="header">
+            <div className="article-header">
                 <NavigationBar />
-                <div className="header-cover">
+                <div className="article-header-cover">
 
-                    <p className="text1">
+                    <p className="article-text1">
                         {REPORT_TEXT}
                     </p>
                     <div className="input-container">
@@ -84,9 +84,9 @@ render() {
                     </div>
                 </div>
             </div>
-            <div className="articles app-content" id="articles">
+            <div className="articles article-app-content" id="articles">
                 <p>Our Featured Articles</p>
-                <div className="content-wrapper">
+                <div className="article-content-wrapper">
                     <div className="article-content article1">
                         <p className="article-content-header">Why First Aid?</p>
                         <p className="article-read">

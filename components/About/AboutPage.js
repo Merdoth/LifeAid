@@ -36,20 +36,20 @@ class AboutPage extends Component {
 
         return (
             <div>
-                <div className="header">
+                <div className="about-header">
                     <NavigationBar />
-                    <div className="header-cover">
-                        <span className="header-cover-text">
-                            <p className="text1">About </p>
+                    <div className="about-header-cover">
+                        <span className="about-header-cover-text">
+                            <p className="about-text1">About </p>
                             {' '}
-                            <p className="text2">{LIFE}</p>
+                            <p className="about-text2">{LIFE}</p>
                         </span>
-                        <p className="desc">Home  /  About Lifeaid</p>
+                        <p className="about-desc">Home  /  About Lifeaid</p>
                     </div>
                 </div>
-                <div className="intro app-content">
+                <div className="about-intro about-app-content">
                     <hr />
-                    <p className="intro-header">
+                    <p className="about-intro-header">
                         {INTRO_TEXT1}
                         <br />
                         {' '}
@@ -86,10 +86,10 @@ class AboutPage extends Component {
                         </div>
                     </span>
                 </div>
-                <div className="services app-content">
+                <div className="about-services about-app-content">
                     <hr />
                     <p>Testimonals</p>
-                    <div className="testimonal-wrapper services-wrapper">
+                    <div className="testimonal-wrapper about-services-wrapper">
                         <div className="testimonal-content">
                             <i className="fas fa-quote-left qoute" />
                             <p className="test">{TEST1}</p>
@@ -110,9 +110,9 @@ class AboutPage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="team app-content">
+                <div className="team about-app-content">
                     <hr />
-                    <p className="intro-header">Meet Our Team</p>
+                    <p className="about-intro-header">Meet Our Team</p>
                     <div className="team-img-container">
                         <div className="team-img-content">
                             <img className="team-mem" src="/static/img/faithy.png" alt="Smiley face" />
@@ -155,10 +155,10 @@ class AboutPage extends Component {
                         </div>
                     </div>
                 </div>
-                <section className="consult app-content">
-                    <div className="consult-text">
-                        <p className="consult-text1">{CONSULT_TEXT1}</p>
-                        <p className="consult-text2">{CONSULT_TEXT2}</p>
+                <section className="about-consult app-content">
+                    <div className="about-consult-text">
+                        <p className="about-consult-text1">{CONSULT_TEXT1}</p>
+                        <p className="about-consult-text2">{CONSULT_TEXT2}</p>
                     </div>
                     <button type="button" onClick={this.handleButton}>{READ_MORE}</button>
                 </section>
