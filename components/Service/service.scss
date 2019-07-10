@@ -28,13 +28,13 @@
     margin-top: 112px;
     margin-bottom: 5px;
 }
-.service-text1 {
+.service-header-text1 {
     color: #20D34A;
     margin-bottom: 0px;
     text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
 }
 
-.service-text2 {
+.service-header-text2 {
     color: #FFFFFF;
     margin-bottom: 0px;
     margin-left: 10px;
@@ -164,7 +164,7 @@ button:active {
 .service-wrap {
     margin-top: 95px;
 }
-.services {
+.service-services {
     background: #283290; 
     margin-top: 1430px;
     height: 570px;
@@ -203,7 +203,7 @@ button:active {
     margin-top: 0px;
     margin-left: 0px; 
 }
-.services-wrapper {
+.service-services-wrapper {
     margin-left: 85px;
     width: 1100px;
 }
@@ -261,16 +261,17 @@ button:active {
     font-size: 14px;
     color: #7B8898;
 }
-.services-content {
+.service-services-content {
     width: 270px;
     height: 370px;
     background: #FFFFFF;
     border-bottom: 9px solid #20D34A;
         transition: transform .2s;
 }
-.services-content:hover {
+.service-services-content:hover {
     background: #f5f7fa;
-    transform: scale(1.1); 
+    transform:
+     scale(1.1); 
 }
 .service-consult {
     background-size: contain;       
@@ -308,10 +309,10 @@ button:active {
     margin-top: 35px;
 }
 
-.footer1 {
+.service-footer1 {
     margin-top: 2450px;
 }
 
-.footer2 {
+.service-footer2 {
     margin-top: 2930px;
 }

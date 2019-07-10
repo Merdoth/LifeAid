@@ -50,12 +50,12 @@ class ServicePage extends Component {
                     <NavigationBar />
                     <div className="service-header-cover">
                         <span className="service-header-cover-text">
-                            <p className="service-text1">
+                            <p className="service-header-text1">
                                 {LIFE}
                                 {' '}
                             </p>
                             {' '}
-                            <p className="service-text2">Services</p>
+                            <p className="service-header-text2">Services</p>
                         </span>
                         <p className="service-desc">Home  /  Services</p>
                     </div>
@@ -130,9 +130,9 @@ class ServicePage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="services service-app-content">
-                    <div className="service-content-wrapper services-wrapper service-wrap">
-                        <div className="services-content">
+                <div className="service-services service-app-content">
+                    <div className="service-content-wrapper service-services-wrapper service-wrap">
+                        <div className="service-services-content">
                             <img className="serviceI" src="/static/img/help.jpg" alt="Smiley face" />
                             <span className="services-content-text">
                                 <p className="service-text1">
@@ -144,7 +144,7 @@ class ServicePage extends Component {
                                 <p className="service-text2">{HELP_DESK}</p>
                             </span>
                         </div>
-                        <div className="services-content">
+                        <div className="service-services-content">
                             <img className="serviceI" src="/static/img/cardiac.jpg" alt="Smiley face" />
                             <span className="services-content-text">
                                 <p className="service-text1">
@@ -156,7 +156,7 @@ class ServicePage extends Component {
                                 <p className="service-text2">{HELP_DESK}</p>
                             </span>
                         </div>
-                        <div className="services-content">
+                        <div className="service-services-content">
                             <img className="serviceI" src="/static/img/care.jpg" alt="Smiley face" />
                             <span className="services-content-text">
                                 <p className="service-text1">
