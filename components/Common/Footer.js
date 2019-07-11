@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-indent-props */
+/* eslint-disable max-len */
 import React from 'react';
 import Head from 'next/head';
 import './common.scss';

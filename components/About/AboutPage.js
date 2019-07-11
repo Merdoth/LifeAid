@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+/* eslint-disable max-len */
 import React, { Component } from 'react';
 import NavigationBar from '../Common/NavigationBar';
 import { ABOUT_STRING } from './constants';

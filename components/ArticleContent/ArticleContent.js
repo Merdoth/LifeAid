@@ -2,6 +2,11 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-indent-props */
+/* eslint-disable react/props-types */
+/* eslint-disable no-console */
+/* eslint-disable react/no-unused-state */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import YouTube from 'react-youtube';
 import Head from 'next/head';
@@ -19,7 +24,7 @@ class ArticleContent extends Component {
             description: '',
             title: '',
             video: '',
-            videoId: ''
+            videoId: '',
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -28,16 +33,15 @@ class ArticleContent extends Component {
 
     componentDidMount(props) {
         console.log(this.props.content.aid);
-        
+
         const { description, title, video } = this.props.content.aid;
         this.setState({
-            description: description,
-            title: title,
-            video: video,
+            description,
+            title,
+            video,
             videoId: video.split('?v=')[1],
-        })
+        });
     }
-
 
     onChange(event) {
         this.setState({ [event.target.name]: event.target.value });

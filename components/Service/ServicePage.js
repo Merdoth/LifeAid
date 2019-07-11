@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable react/jsx-indent-props */
+/* eslint-disable max-len */
 import React, { Component } from 'react';
 import Head from 'next/head';
 import NavigationBar from '../Common/NavigationBar';
