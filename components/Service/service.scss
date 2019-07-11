@@ -1,11 +1,11 @@
-.header {
+.service-header {
     display: flex;
     flex-direction: column;
     position: absolute;
     width: 100%;
     height: 996.43px;  
 }
-.header-cover {
+.service-header-cover {
     position: absolute;
     margin-top: 100px;
     width: 100%;
@@ -17,7 +17,7 @@
     box-shadow:inset 0 0 0 2000px rgba(39, 39, 245, 0.3);
 }
 
-.header-cover-text {
+.service-header-cover-text {
     font-style: normal;
     font-weight: 900;
     font-size: 30px;
@@ -28,19 +28,19 @@
     margin-top: 112px;
     margin-bottom: 5px;
 }
-.text1 {
+.service-header-text1 {
     color: #20D34A;
     margin-bottom: 0px;
     text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
 }
 
-.text2 {
+.service-header-text2 {
     color: #FFFFFF;
     margin-bottom: 0px;
     margin-left: 10px;
     text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
 }
-.desc {
+.service-desc {
     margin-left: 95px;
     margin-top: 10px;
     color: #FFFFFF;
@@ -49,11 +49,11 @@
     font-weight: 500;
     text-shadow: 0px 17px 17px rgba(255, 255, 255, 0.25);
 }
-.app-content {
+.service-app-content {
     position: absolute;
     width: 100%;
 }
-.app-content > hr {
+.service-app-content > hr {
     border: 0px;
     position: absolute;
     width: 80px;
@@ -62,25 +62,25 @@
     margin-top: 60px;
     background: #20D34A;
 }
-.app-content > p {
+.service-app-content > p {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 600;
     margin-top: 78px;
     margin-left: 75px;
  }
-.intro {
+.service-intro {
     background: #FFFFFF;
     margin-top: 430px;
     height: 840px;
 }
-.intro-header {
+.service-intro-header {
     line-height: 40px;
     color: #283290;
     font-size: 32px;
 }
   
-.intro > span > p {
+.service-intro > span > p {
     font-style: normal;
     font-weight: 500;
     width: 723px;
@@ -92,12 +92,12 @@
     color: #7B8898;
     margin-bottom: 0px;
 }
-.intro > span {
+.service-intro > span {
     display: flex; 
     flex-direction: row;
 }
 
-.intro > span:hover {
+.service-intro > span:hover {
     color: #ffffff;
 }
 
@@ -113,14 +113,14 @@
 .icons-status:hover {
     color: #ffffff; 
 }
-.intro-content:hover {
+.service-intro-content:hover {
     .intro-text1, 
     .intro-text2 {
         color: #ffffff;
     }
 }
 
-.intro-content > hr {
+.service-intro-content > hr {
     border: 0px;
     position: absolute;
     width: 103px;
@@ -143,6 +143,7 @@ button {
     font-weight: 500;
     box-shadow: 0px 8px 8px rgba(255, 255, 255, 0.25);
     transition: all 200ms linear;
+    cursor: pointer;
 }
    
 button:hover {
@@ -152,18 +153,18 @@ button:hover {
 button:active {
     background: #20D34A;
 }
-.content-wrapper {
+.service-content-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-.intro-wrap {
+.service-intro-wrap {
     margin-top: 35px;
 }
 .service-wrap {
     margin-top: 95px;
 }
-.services {
+.service-services {
     background: #283290; 
     margin-top: 1430px;
     height: 570px;
@@ -174,13 +175,13 @@ button:active {
    font-size: 32px;
 }
  
-.intro-content {
+.service-intro-content {
     height: 350px;
     width: 305px;
     background: #f5f7fa;
     transition: transform .2s;
 }
-.intro-content:hover {
+.service-intro-content:hover {
     background: #283290;
     transform: scale(1.1); 
     color: #ffffff;
@@ -202,7 +203,7 @@ button:active {
     margin-top: 0px;
     margin-left: 0px; 
 }
-.services-wrapper {
+.service-services-wrapper {
     margin-left: 85px;
     width: 1100px;
 }
@@ -260,18 +261,19 @@ button:active {
     font-size: 14px;
     color: #7B8898;
 }
-.services-content {
+.service-services-content {
     width: 270px;
     height: 370px;
     background: #FFFFFF;
     border-bottom: 9px solid #20D34A;
         transition: transform .2s;
 }
-.services-content:hover {
+.service-services-content:hover {
     background: #f5f7fa;
-    transform: scale(1.1); 
+    transform:
+     scale(1.1); 
 }
-.consult {
+.service-consult {
     background-size: contain;       
     background-repeat:   no-repeat;
     background-position: center center; 
@@ -280,10 +282,10 @@ button:active {
     height: 450px;
     box-shadow:inset 0 0 0 2000px rgba(79, 81, 202, 0.3);
 }
-.consult-text {
+.service-consult-text {
     margin-top: 180px;
 }
-.consult-text1 {
+.service-consult-text1 {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 500;
@@ -293,7 +295,7 @@ button:active {
     text-align: center;   
 }
 
-.consult-text2 {
+.service-consult-text2 {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 500;
@@ -302,15 +304,15 @@ button:active {
     color: #000000;
 }
 
-.consult > button {
+.service-consult > button {
     margin-left: 43%;
     margin-top: 35px;
 }
 
-.footer1 {
+.service-footer1 {
     margin-top: 2450px;
 }
 
-.footer2 {
+.service-footer2 {
     margin-top: 2930px;
 }
