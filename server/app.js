@@ -61,7 +61,7 @@ server.use('/api-docs', express.static(path.join(__dirname, './../api-docs')));
 
 const strategy = new Auth0Strategy(
     {
-        callbackURL: `http://localhost:${port}/callback`,
+        callbackURL: `https://life-aid.herokuapp.com:${port}/callback`,
         clientID: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
         domain: process.env.DOMAIN,
@@ -118,6 +118,12 @@ app.prepare().then(() => {
             picture: userProfile.picture,
             username: userProfile.nickname,
         });
+    });
+
+    server.get('/article/:id', (req, res) => {
+        const actualPage = '/articlePage';
+        const queryParams = { id: req.params.id };
+        app.render(req, res, actualPage, queryParams);
     });
 
     server.get('*', (req, res) => {

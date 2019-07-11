@@ -16,11 +16,28 @@ class ArticleContent extends Component {
         super(props);
         this.state = {
             comment: '',
+            description: '',
+            title: '',
+            video: '',
+            videoId: ''
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this._onReady = this._onReady.bind(this);
     }
+
+    componentDidMount(props) {
+        console.log(this.props.content.aid);
+        
+        const { description, title, video } = this.props.content.aid;
+        this.setState({
+            description: description,
+            title: title,
+            video: video,
+            videoId: video.split('?v=')[1],
+        })
+    }
+
 
     onChange(event) {
         this.setState({ [event.target.name]: event.target.value });
@@ -77,20 +94,18 @@ class ArticleContent extends Component {
                     </div>
                 </div>
                 <div className="a-content-articles a-content-app-content" id="articles">
-                    <p>Why First Aid?</p>
+                    <p>{this.state.title}</p>
                     <hr />
                     <div className="a-content-article-content a-content-article1">
-                        <p className="a-content-article-read">{ARTICLE_CONTENT_READ1}</p>
+                        <p className="a-content-article-read">{this.state.description}</p>
                         <br />
                         <div className="video-tag">
                             <YouTube
-                                videoId="zMfKzfPteRM"
+                                videoId={this.state.videoId}
                                 opts={opts}
                                 onReady={this._onReady}
                             />
                         </div>
-                        <br />
-                        <p className="article-read">{ARTICLE_CONTENT_READ2}</p>
                     </div>
                     <div className="comments-wrapper">
                         <div>

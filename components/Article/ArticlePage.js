@@ -5,170 +5,114 @@
 /* eslint-disable lines-between-class-members */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint indent:0 */
+/* eslint arrow-parens:0 */
+/* eslint consistent-return:0 */
+/* eslint arrow-body-style:0 */
+/* eslint react/destructuring-assignment:0 */
+/* eslint object-shorthand:0 */
+/* eslint react/no-access-state-in-setstate:0 */
+/* eslint prefer-template:0 */
+/* eslint no-console:0 */
+/* eslint no-unused-vars:0 */
 import React, { Component } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
-import Link from 'next/link';
 import 'antd/dist/antd.css';
 import { Pagination } from 'antd';
 import NavigationBar from '../Common/NavigationBar';
 import { REPORT } from './constants';
-import { HOME_STRINGS } from '../constants';
 import { SERVICE_STRING } from '../Service/constants';
 import './article.scss';
+import ArticleList from './Articles';
 
 class ArticlePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            articles: [],
             name: '',
         };
         this.handleSend = this.handleSend.bind(this);
     }
 
-handleSend = e => {
-    e.preventDefault();
-    const data = this.state.name;
-    axios.post('api/v1/report', data)
-        .then(response => {
-            M.toast(response.data.message, 3000, 'green');
-        })
-        .catch(err => {
-            M.toast(err.response.data.message, 3000, 'red');
-        });
-};
+    componentDidMount() {
+        axios.get('/api/v1/aids')
+            .then(res => {
+                this.setState((prevState) => {
+                    return { articles: prevState.articles.concat(res.data.data.aids) };
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 
-render() {
-    const {
-        REPORT_TEXT,
-        MATERIALIZE,
-        MATERIALIZE_JS,
-    } = REPORT;
+    handleSend = e => {
+        e.preventDefault();
+        const data = this.state.name;
+        axios.post('api/v1/report', data)
+            .then(response => {
+                M.toast(response.data.message, 3000, 'green');
+            })
+            .catch(err => {
+                M.toast(er.response.data.message, 3000, 'red');
+            });
+    };
 
-    const {
-        GOOGLE_FONTS,
-    } = SERVICE_STRING;
+    render() {
+        const {
+            REPORT_TEXT,
+            MATERIALIZE,
+            MATERIALIZE_JS,
+        } = REPORT;
 
-    const {
-        ARTICLE_READ,
-        READ_MORE,
-    } = HOME_STRINGS;
+        const {
+            GOOGLE_FONTS,
+        } = SERVICE_STRING;
 
-    return (
-        <React.Fragment>
-            <Head>
-                <link href={GOOGLE_FONTS} />
-                <link href={MATERIALIZE} />
-                <link href={MATERIALIZE_JS} />
-            </Head>
-            <div className="article-header">
-                <NavigationBar />
-                <div className="article-header-cover">
+        const { articles } = this.state;
 
-                    <p className="article-text1">
-                        {REPORT_TEXT}
-                    </p>
-                    <div className="input-container">
-                        <input
-                            type="file"
-                            id="real-input"
-                            name="file"
-                        />
-                        <button
-                            className="browse-btn"
-                            type="submit"
-                            onClick={e => this.handleSend(e)}
-                        >
-                      SEND FILE
-                        </button>
+        return (
+            <React.Fragment>
+                <Head>
+                    <link href={GOOGLE_FONTS} />
+                    <link href={MATERIALIZE} />
+                    <link href={MATERIALIZE_JS} />
+                </Head>
+                <div className="article-header">
+                    <NavigationBar />
+                    <div className="article-header-cover">
+
+                        <p className="article-text1">
+                            {REPORT_TEXT}
+                        </p>
+                        <div className="input-container">
+                            <input
+                                type="file"
+                                id="real-input"
+                                name="file"
+                            />
+                            <button
+                                className="browse-btn"
+                                type="submit"
+                                onClick={e => this.handleSend(e)}
+                            >
+                        SEND FILE
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="articles article-app-content" id="articles">
-                <p>Our Featured Articles</p>
-                <div className="article-content-wrapper">
-                    <div className="article-content article1">
-                        <p className="article-content-header">Why First Aid?</p>
-                        <p className="article-read">
-                            {ARTICLE_READ}
-                            <Link href="/articlePage">
-                                <a className="article-content-a">
-                                    {READ_MORE}
-                                ...
-                                </a>
-                            </Link>
-                        </p>
+                <div className="articles article-app-content" id="articles">
+                    <p>Our Featured Articles</p>
+                    <div className="content-wrapper">
+                        <ArticleList articles={articles} />
                     </div>
-                    <div className="article-content">
-                        <p className="article-content-header">What Should be in a First Aid kit?</p>
-                        <p className="article-read">
-                            {ARTICLE_READ}
-                            <Link href="/articlePage">
-                                <a className="article-content-a">
-                                    {READ_MORE}
-                                ...
-                                </a>
-                            </Link>
-                        </p>
-                    </div>
+                    <Pagination className="pagination" defaultCurrent={1} total={3} />
                 </div>
-                <div className="content-wrapper">
-                    <div className="article-content article1">
-                        <p className="article-content-header">Why First Aid?</p>
-                        <p className="article-read">
-                            {ARTICLE_READ}
-                            <Link href="/articlePage">
-                                <a className="article-content-a">
-                                    {READ_MORE}
-                                ...
-                                </a>
-                            </Link>
-                        </p>
-                    </div>
-                    <div className="article-content">
-                        <p className="article-content-header">What Should be in a First Aid kit?</p>
-                        <p className="article-read">
-                            {ARTICLE_READ}
-                            <Link href="/articlePage">
-                                <a className="article-content-a">
-                                    {READ_MORE}
-                                ...
-                                </a>
-                            </Link>
-                        </p>
-                    </div>
-                </div>
-                <div className="content-wrapper">
-                    <div className="article-content article1">
-                        <p className="article-content-header">Why First Aid?</p>
-                        <p className="article-read">
-                            {ARTICLE_READ}
-                            <Link href="/articlePage">
-                                <a className="article-content-a">
-                                    {READ_MORE}
-                                ...
-                                </a>
-                            </Link>
-                        </p>
-                    </div>
-                    <div className="article-content">
-                        <p className="article-content-header">What Should be in a First Aid kit?</p>
-                        <p className="article-read">
-                            {ARTICLE_READ}
-                            <Link href="/articlePage">
-                                <a className="article-content-a">
-                                    {READ_MORE}
-                                ...
-                                </a>
-                            </Link>
-                        </p>
-                    </div>
-                </div>
-                <Pagination className="pagination" defaultCurrent={1} total={3} />
-            </div>
-        </React.Fragment>
-    );
-}
+            </React.Fragment>
+        );
+    }
 }
 
 export default ArticlePage;

@@ -6,7 +6,7 @@
   "scripts": {
     "dev_server": "node dist/server/app.js",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "nodemon --watch server --exec babel-node -- ./server/app.js",
     "dev_client": "next",
     "dev": "nodemon --watch server --exec babel-node -- ./server/app.js",
     "lint": "eslint --ext .js --ext .jsx . --fix",
