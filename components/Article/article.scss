@@ -18,7 +18,7 @@
 .articles {
     background: #FBFCFE;
     margin-top: 360px;
-    height: 1860px;
+    height: auto;
 }
 .article-app-content > p {
     font-family: Source Sans Pro;
@@ -108,16 +108,17 @@
     font-size: 20px !important;
     cursor: pointer;
     margin-left: 590px;
+    margin-bottom: 50px;
 }
 
 .pagination:hover {
     color: #20D34A;
 }
 .article-footer1 {
-    margin-top: 2210px;
+    margin-top: 1185px;
 }
 .article-footer2 {
-    margin-top: 2690px;
+    margin-top: 0px;
 }
 
 .input-container {
